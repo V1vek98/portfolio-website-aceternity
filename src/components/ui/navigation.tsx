@@ -49,33 +49,33 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 w-full z-50 transition-all duration-300",
+          "fixed top-0 w-full z-50 transition-all duration-300 nav-height",
           isScrolled
             ? "bg-black/80 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto container-spacing h-full">
+          <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex-shrink-0"
             >
-              <span className="text-2xl font-bold gradient-text">
+              <span className="text-2xl md:text-3xl font-bold gradient-text">
                 {personalInfo.name.split(" ")[0]}
               </span>
             </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="flex items-center space-x-8">
+              <div className="flex items-center space-x-2 lg:space-x-4">
                 {navigationItems.map((item) => (
                   <motion.button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
                     className={cn(
-                      "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                      "px-4 py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200",
                       activeSection === item.href.substring(1)
                         ? "text-blue-400 bg-blue-500/10"
                         : "text-gray-300 hover:text-white hover:bg-white/5"
@@ -90,12 +90,12 @@ export function Navigation() {
             </div>
 
             {/* CTA Button */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center">
               <motion.a
                 href={personalInfo.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium transition-all duration-200 hover:from-blue-700 hover:to-purple-700 interactive-btn"
+                className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm lg:text-base transition-all duration-200 hover:from-blue-700 hover:to-purple-700 interactive-btn"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -108,7 +108,7 @@ export function Navigation() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                className="p-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -127,16 +127,17 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 md:hidden"
+            className="fixed inset-x-0 z-40 md:hidden"
+            style={{ top: "var(--nav-height)" }}
           >
-            <div className="bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-6">
-              <div className="flex flex-col space-y-3">
+            <div className="bg-black/95 backdrop-blur-md border-b border-white/10 container-spacing py-8">
+              <div className="space-y-responsive">
                 {navigationItems.map((item, index) => (
                   <motion.button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
                     className={cn(
-                      "text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200",
+                      "w-full text-left px-6 py-4 rounded-lg text-lg font-medium transition-all duration-200",
                       activeSection === item.href.substring(1)
                         ? "text-blue-400 bg-blue-500/10"
                         : "text-gray-300 hover:text-white hover:bg-white/5"
@@ -155,7 +156,7 @@ export function Navigation() {
                   href={personalInfo.resume}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium mt-4"
+                  className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-lg mt-6"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navigationItems.length * 0.1 }}

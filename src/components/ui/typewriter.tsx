@@ -56,7 +56,8 @@ export function Typewriter({
     <span className={className}>
       {currentText}
       <motion.span
-        className="inline-block w-1 h-8 bg-blue-500 ml-1"
+        className="inline-block w-0.5 bg-blue-500 ml-2"
+        style={{ height: "1em" }}
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -104,7 +105,8 @@ export function TypewriterText({
       {displayText}
       {!isComplete && (
         <motion.span
-          className="inline-block w-0.5 h-6 bg-blue-500 ml-1"
+          className="inline-block w-0.5 bg-blue-500 ml-1"
+          style={{ height: "1.2em" }}
           animate={{ opacity: [1, 0, 1] }}
           transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
         />
