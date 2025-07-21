@@ -58,14 +58,14 @@ export interface PersonalInfo {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: "Alex DataMaster",
+  name: "Vivek Patel",
   title: "Senior Data Analyst",
-  location: "San Francisco, CA",
-  email: "alex.datamaster@email.com",
-  phone: "+1 (555) 123-4567",
-  linkedin: "https://linkedin.com/in/alexdatamaster",
-  github: "https://github.com/alexdatamaster",
-  bio: "Passionate Senior Data Analyst with 7+ years of experience transforming complex datasets into actionable business insights. Specialized in predictive analytics, data visualization, and statistical modeling with expertise in Python, SQL, and advanced analytics tools.",
+  location: "Augusta, GA",
+  email: "vspatel360@gmail.com",
+  phone: "+1 (480) 233-8735",
+  linkedin: "https://www.linkedin.com/in/vspatel360/",
+  github: "https://github.com/v1vek98",
+  bio: "Passionate Senior Data Analyst with 4+ years of experience adept at translating complex data into strategic growth. I leverage Python, SQL, Power BI, and Tableau to build highly effective automated solutions that significantly reduce manual reporting. With expertise in data warehousing, AI-driven product enhancements, and NLP, I guide data-informed product roadmaps and uncover new revenue opportunities.",
   avatar: "/images/avatar.jpg",
   resume: "/files/resume.pdf",
 };

@@ -9,17 +9,18 @@ import { animation, scrollToElement } from "@/lib/utils";
 
 const specializations = [
   "Data Visualization Expert",
-  "Predictive Analytics Specialist", 
   "Business Intelligence Analyst",
-  "Statistical Modeling Pro",
-  "Machine Learning Engineer"
+  "Senior Data Analyst",
+  "Data Warehousing Specialist",
+  "AI-Driven Product Enhancements",
+  "Data Engineering"
 ];
 
 const stats = [
-  { label: "Years Experience", value: 7, suffix: "+" },
-  { label: "Projects Completed", value: 150, suffix: "+" },
-  { label: "Data Models Built", value: 50, suffix: "+" },
-  { label: "ROI Generated", value: 34, suffix: "%" }
+  { label: "Years Experience", value: 4, suffix: "+" },
+  { label: "Projects Completed", value: 50, suffix: "+" },
+  { label: "Data Models Built", value: 25, suffix: "+" },
+  { label: "Dashboards Built", value: 50, suffix: "+" }
 ];
 
 export function Hero() {
@@ -39,7 +40,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-12"
           >
             {/* Greeting */}
             <motion.div
@@ -53,7 +54,7 @@ export function Hero() {
             </motion.div>
 
             {/* Name and Title */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -106,7 +107,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
             >
               <motion.button
                 onClick={handleContactClick}
@@ -138,7 +139,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6 }}
-              className="flex items-center justify-center gap-4 pt-4"
+              className="flex items-center justify-center gap-6 pt-8"
             >
               {socialLinks.map((link, index) => {
                 const IconComponent = link.icon === "linkedin" ? Linkedin : 
@@ -169,7 +170,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.0 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-16 border-t border-gray-800"
+            className="grid grid-cols-2 md:grid-cols-4 gap-12 mt-24 pt-20 border-t border-gray-800"
           >
             {stats.map((stat, index) => (
               <motion.div
