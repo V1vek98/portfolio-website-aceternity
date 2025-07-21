@@ -68,14 +68,14 @@ export function Navigation() {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="flex items-center space-x-2 lg:space-x-4">
+            <div className="hidden md:block flex-1 flex justify-center">
+              <div className="flex items-center space-x-18 lg:space-x-24">
                 {navigationItems.map((item) => (
                   <motion.button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
                     className={cn(
-                      "px-4 py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200",
+                      "px-6 py-3 mx-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200",
                       activeSection === item.href.substring(1)
                         ? "text-blue-400 bg-blue-500/10"
                         : "text-gray-300 hover:text-white hover:bg-white/5"

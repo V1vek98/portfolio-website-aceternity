@@ -107,7 +107,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-8"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-4"
             >
               <motion.button
                 onClick={handleContactClick}
@@ -139,7 +139,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6 }}
-              className="flex items-center justify-center gap-4 md:gap-6 pt-8"
+              className="flex items-center justify-center gap-4 md:gap-6 pt-4"
             >
               {socialLinks.map((link, index) => {
                 const IconComponent = link.icon === "linkedin" ? Linkedin : 
@@ -170,12 +170,12 @@ export function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.0 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20 md:mt-32 pt-16 md:pt-20 border-t border-gray-800"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 md:mt-16 pt-8 md:pt-12 border-t border-gray-800"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="text-center space-y-2"
+                className="text-center space-y-1"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.2 + index * 0.1 }}

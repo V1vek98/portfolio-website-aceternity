@@ -296,20 +296,20 @@ p:last-child {
 
 /* Improved Spacing Utilities */
 .space-y-responsive > * + * {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .space-y-responsive-lg > * + * {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
   .space-y-responsive > * + * {
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
   
   .space-y-responsive-lg > * + * {
-    margin-top: 2rem;
+    margin-top: 0.75rem;
   }
 }
 
