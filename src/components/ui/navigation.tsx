@@ -55,7 +55,8 @@ export function Navigation() {
             : "bg-transparent"
         )}
       >
-        <div className="section-container h-full">
+        {/* Desktop Layout */}
+        <div className="section-container h-full hidden md:block">
           <div className="grid grid-cols-3 items-center h-full">
             {/* Logo - Left Section */}
             <div className="flex justify-start">
@@ -70,7 +71,7 @@ export function Navigation() {
             </div>
 
             {/* Desktop Navigation - Center Section */}
-            <div className="hidden md:flex items-center justify-center">
+            <div className="flex items-center justify-center">
               <div className="flex items-center space-x-6 lg:space-x-8">
                 {navigationItems.map((item) => (
                   <motion.button
@@ -91,35 +92,45 @@ export function Navigation() {
               </div>
             </div>
 
-            {/* CTA Button - Right Section (Desktop) / Mobile Menu Toggle */}
+            {/* Desktop CTA - Right Section */}
             <div className="flex justify-end">
-              {/* Desktop CTA */}
-              <div className="hidden md:block">
-                <motion.a
-                  href={personalInfo.resume}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm lg:text-base transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Download size={16} />
-                  Resume
-                </motion.a>
-              </div>
-
-              {/* Mobile Menu Toggle */}
-              <div className="md:hidden">
-                <motion.button
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="p-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </motion.button>
-              </div>
+              <motion.a
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-base lg:text-lg transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow"
+                whileHover={{ scale: 1.25 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Download size={18} />
+                Resume
+              </motion.a>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden h-full">
+          <div className="flex items-center justify-between h-full px-4">
+            {/* Logo - Left */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex-shrink-0"
+            >
+              <span className="text-2xl font-bold gradient-text">
+                {personalInfo.name.split(" ")[0]}
+              </span>
+            </motion.div>
+
+            {/* Hamburger Menu - Right */}
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.button>
           </div>
         </div>
       </motion.nav>
