@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Mail, Linkedin, Github, MapPin, TrendingUp, BarChart3, Database } from "lucide-react";
+import { ChevronDown, Mail, Linkedin, Github, MapPin, TrendingUp, BarChart3, Database, Download } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Typewriter, AnimatedCounter } from "@/components/ui/typewriter";
 import { personalInfo, socialLinks } from "@/data/portfolio";
@@ -131,6 +131,18 @@ export function Hero() {
               >
                 <TrendingUp size={20} />
                 View My Work
+              </motion.a>
+
+              <motion.a
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg font-medium text-lg transition-all duration-200 hover:from-green-700 hover:to-blue-700 interactive-btn glow"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Download size={20} />
+                Download Resume
               </motion.a>
             </motion.div>
 
