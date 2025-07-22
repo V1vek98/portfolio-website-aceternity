@@ -56,45 +56,47 @@ export function Navigation() {
         )}
       >
         <div className="max-w-7xl mx-auto container-spacing h-full">
-          <div className="grid grid-cols-3 items-center h-full">
-            {/* Logo - Left Column */}
+          <div className="grid grid-cols-2 md:grid-cols-3 items-center h-full w-full gap-4 md:gap-0">
+            {/* Logo - Left section with consistent spacing */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex-shrink-0 justify-self-start"
+              className="flex justify-start"
             >
               <span className="text-2xl md:text-3xl font-bold gradient-text">
                 {personalInfo.name.split(" ")[0]}
               </span>
             </motion.div>
 
-            {/* Desktop Navigation - Center Column - Perfectly centered */}
-            <div className="hidden md:flex items-center justify-center space-x-6 lg:space-x-8">
-              {navigationItems.map((item) => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className={cn(
-                    "px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200",
-                    activeSection === item.href.substring(1)
-                      ? "text-blue-400 bg-blue-500/10"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  )}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item.name}
-                </motion.button>
-              ))}
+            {/* Desktop Navigation - Perfectly centered middle section */}
+            <div className="hidden md:flex items-center justify-center">
+              <div className="flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
+                {navigationItems.map((item) => (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.href)}
+                    className={cn(
+                      "px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 whitespace-nowrap",
+                      activeSection === item.href.substring(1)
+                        ? "text-blue-400 bg-blue-500/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                    )}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+              </div>
             </div>
 
-            {/* CTA Button - Right Column (Desktop) / Mobile Menu - Right Column (Mobile) */}
+            {/* CTA Button - Right section with adequate space */}
             <div className="flex items-center justify-end">
               {/* Desktop CTA Button */}
               <motion.a
                 href={personalInfo.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm lg:text-base transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow"
+                className="hidden md:flex items-center gap-2 px-4 lg:px-5 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm lg:text-base transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow whitespace-nowrap"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
