@@ -55,49 +55,70 @@ export function Navigation() {
             : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto container-spacing h-full">
-          <div className="relative flex items-center justify-between h-full">
-            {/* Logo - Absolute positioned left */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex-shrink-0 absolute left-0"
-            >
-              <span className="text-2xl md:text-3xl font-bold gradient-text">
-                {personalInfo.name.split(" ")[0]}
-              </span>
-            </motion.div>
+        <div className="section-container h-full">
+          <div className="grid grid-cols-3 items-center h-full">
+            {/* Logo - Left Section */}
+            <div className="flex justify-start">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex-shrink-0"
+              >
+                <span className="text-2xl md:text-3xl font-bold gradient-text">
+                  {personalInfo.name.split(" ")[0]}
+                </span>
+              </motion.div>
+            </div>
 
-            {/* Desktop Navigation - Perfectly centered */}
-            <div className="hidden md:flex items-center justify-center space-x-6 lg:space-x-8 absolute left-1/2 transform -translate-x-1/2">
-              {navigationItems.map((item) => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className={cn(
-                    "px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200",
-                    activeSection === item.href.substring(1)
-                      ? "text-blue-400 bg-blue-500/10"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  )}
+            {/* Desktop Navigation - Center Section */}
+            <div className="hidden md:flex items-center justify-center">
+              <div className="flex items-center space-x-6 lg:space-x-8">
+                {navigationItems.map((item) => (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.href)}
+                    className={cn(
+                      "px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200",
+                      activeSection === item.href.substring(1)
+                        ? "text-blue-400 bg-blue-500/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                    )}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Button - Right Section (Desktop) / Mobile Menu Toggle */}
+            <div className="flex justify-end">
+              {/* Desktop CTA */}
+              <div className="hidden md:block">
+                <motion.a
+                  href={personalInfo.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm lg:text-base transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {item.name}
-                </motion.button>
-              ))}
-            </div>
+                  <Download size={16} />
+                  Resume
+                </motion.a>
+              </div>
 
-            {/* Mobile Menu - Absolute positioned right */}
-            <div className="flex items-center justify-end absolute right-0">
-              {/* Mobile menu button */}
-              <motion.button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </motion.button>
+              {/* Mobile Menu Toggle */}
+              <div className="md:hidden">
+                <motion.button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="p-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </motion.button>
+              </div>
             </div>
           </div>
         </div>
@@ -114,14 +135,14 @@ export function Navigation() {
             className="fixed inset-x-0 z-40 md:hidden"
             style={{ top: "var(--nav-height)" }}
           >
-            <div className="bg-black/95 backdrop-blur-md border-b border-white/10 container-spacing py-8">
+            <div className="bg-black/95 backdrop-blur-md border-b border-white/10 section-container py-8">
               <div className="space-y-responsive">
                 {navigationItems.map((item, index) => (
                   <motion.button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
                     className={cn(
-                      "w-full text-left px-6 py-4 rounded-lg text-lg font-medium transition-all duration-200",
+                      "w-full text-center px-6 py-4 rounded-lg text-lg font-medium transition-all duration-200",
                       activeSection === item.href.substring(1)
                         ? "text-blue-400 bg-blue-500/10"
                         : "text-gray-300 hover:text-white hover:bg-white/5"
@@ -140,7 +161,7 @@ export function Navigation() {
                   href={personalInfo.resume}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-lg mt-6"
+                  className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-lg mt-6 mx-auto max-w-xs"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navigationItems.length * 0.1 }}

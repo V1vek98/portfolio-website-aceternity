@@ -5,10 +5,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
+# Local development (default)
 npm run dev
-# or
-npm run dev -- --port 0.0.0.0
-# or
+
+# Allow external access (recommended)
+npx next dev -H 0.0.0.0 # Link should be 10.0.0.243:3000
+
+# Different port + external access
+npx next dev -H 0.0.0.0 -p 8080
+
+# Alternative package managers
 yarn dev
 # or
 pnpm dev

@@ -17,12 +17,14 @@
   --warning: #f59e0b;
   --error: #ef4444;
   
-  /* Spacing Variables */
+  /* Improved Spacing and Layout Variables */
   --nav-height: 80px;
   --section-padding: 120px;
   --section-padding-mobile: 80px;
   --container-padding: 24px;
   --container-padding-mobile: 16px;
+  --max-content-width: 1200px;
+  --max-section-width: 1400px;
 }
 
 @theme inline {
@@ -62,7 +64,21 @@ body {
   scroll-padding-top: var(--nav-height);
 }
 
-/* Improved Container Utilities */
+/* Improved Container System for Perfect Centering */
+.main-container {
+  width: 100%;
+  max-width: var(--max-section-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.content-container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
 .container-spacing {
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
@@ -73,8 +89,36 @@ body {
   padding-bottom: var(--section-padding);
 }
 
+.section-container {
+  width: 100%;
+  max-width: var(--max-section-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Responsive Container Adjustments */
+@media (max-width: 1440px) {
+  :root {
+    --max-section-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --max-section-width: 1024px;
+    --max-content-width: 900px;
+  }
+}
+
 @media (max-width: 768px) {
-  .container-spacing {
+  :root {
+    --nav-height: 70px;
+    --max-section-width: 100%;
+    --max-content-width: 100%;
+  }
+  
+  .container-spacing, .section-container, .main-container {
     padding-left: var(--container-padding-mobile);
     padding-right: var(--container-padding-mobile);
   }
@@ -94,7 +138,29 @@ body {
   padding-top: var(--nav-height);
 }
 
-/* Improved Typography Spacing */
+/* Perfect Centering Utilities */
+.perfect-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perfect-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Improved Typography - Removed forced centering */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   margin-bottom: 0.75em;
@@ -300,17 +366,70 @@ p:last-child {
 }
 
 .space-y-responsive-lg > * + * {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.space-y-responsive-xl > * + * {
+  margin-top: 2.5rem;
 }
 
 @media (max-width: 768px) {
   .space-y-responsive > * + * {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
   
   .space-y-responsive-lg > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .space-y-responsive-xl > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 65px;
+    --section-padding-mobile: 60px;
+  }
+  
+  html {
+    font-size: 13px;
+  }
+  
+  .space-y-responsive > * + * {
     margin-top: 0.75rem;
   }
+  
+  .space-y-responsive-lg > * + * {
+    margin-top: 1rem;
+  }
+
+  .space-y-responsive-xl > * + * {
+    margin-top: 1.25rem;
+  }
+}
+
+/* Perfect Button Centering */
+.btn-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Consistent Flex Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Custom Selection */
@@ -332,6 +451,7 @@ p:last-child {
   border-top: 4px solid var(--primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  margin: 0 auto;
 }
 
 @keyframes spin {
@@ -339,37 +459,44 @@ p:last-child {
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive Utilities */
-@media (max-width: 768px) {
+/* High Resolution Display Support */
+@media (min-width: 1920px) {
   :root {
-    --nav-height: 70px;
-  }
-  
-  html {
-    font-size: 14px;
-  }
-  
-  .typewriter {
-    animation: typewriter 2s steps(30, end), blink-caret 0.75s step-end infinite;
-  }
-  
-  .glass-card:hover {
-    transform: translateY(-4px);
-  }
-  
-  .interactive-btn {
-    padding: 0.875rem 1.5rem;
-    margin: 0.25rem;
+    --max-section-width: 1600px;
+    --max-content-width: 1400px;
+    --container-padding: 32px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 2560px) {
   :root {
-    --nav-height: 65px;
-    --section-padding-mobile: 60px;
+    --max-section-width: 2000px;
+    --max-content-width: 1800px;
+    --container-padding: 48px;
   }
   
   html {
-    font-size: 13px;
+    font-size: 18px;
+  }
+}
+
+/* Ultra-wide Display Support */
+@media (min-width: 3440px) {
+  :root {
+    --max-section-width: 2400px;
+    --max-content-width: 2000px;
+    --container-padding: 64px;
+  }
+  
+  html {
+    font-size: 20px;
+  }
+}
+
+/* Prevent Content Stretching on Massive Screens */
+@media (min-width: 4000px) {
+  :root {
+    --max-section-width: 2800px;
+    --max-content-width: 2400px;
   }
 }
