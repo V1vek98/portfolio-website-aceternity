@@ -3,14 +3,13 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, MotionValue, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import { AnimatedDockTooltip } from "./animated-dock-tooltip";
 
 export const FloatingDock = ({
   items,
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
@@ -26,7 +25,7 @@ const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string }[];
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
@@ -117,10 +116,10 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string }[];
   className?: string;
 }) => {
-  const mouseX = useMotionValue(Infinity);
+  let mouseX = useMotionValue(Infinity);
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -156,81 +155,100 @@ function IconContainer({
   title,
   icon,
   href,
+  titleColor,
 }: {
   mouseX: MotionValue;
   title: string;
   icon: React.ReactNode;
   href: string;
+  titleColor?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  let ref = useRef<HTMLDivElement>(null);
 
-  const distance = useTransform(mouseX, (val) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  let distance = useTransform(mouseX, (val) => {
+    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
 
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
 
-  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  const heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
 
-  const width = useSpring(widthTransform, {
+  let width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  const height = useSpring(heightTransform, {
+  let height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
 
-  const widthIcon = useSpring(widthTransformIcon, {
+  let widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  const heightIcon = useSpring(heightTransformIcon, {
+  let heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
+
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <AnimatedDockTooltip title={title}>
-      <a
-        href={href}
-        onClick={(e) => {
-          e.preventDefault();
-          if (href.startsWith('#')) {
-            const element = document.getElementById(href.substring(1));
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          } else if (href.startsWith('http')) {
-            window.open(href, '_blank');
+    <a
+      href={href}
+      onClick={(e) => {
+        e.preventDefault();
+        if (href.startsWith('#')) {
+          const element = document.getElementById(href.substring(1));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
           }
-        }}
+        } else if (href.startsWith('http')) {
+          window.open(href, '_blank');
+        }
+      }}
+    >
+      <motion.div
+        ref={ref}
+        style={{ width, height }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="aspect-square rounded-full bg-gray-700/50 flex items-center justify-center relative"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <motion.div
-          ref={ref}
-          style={{ width, height }}
-          className="aspect-square rounded-full bg-gray-700/50 flex items-center justify-center relative"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <div className="relative flex items-center justify-center w-10 h-10">
-            <motion.div
-              style={{ width: widthIcon, height: heightIcon }}
-              className="flex items-center justify-center"
-            >
-              {icon}
-            </motion.div>
-          </div>
-        </motion.div>
-      </a>
-    </AnimatedDockTooltip>
+        <div className="relative flex items-center justify-center w-10 h-10">
+          <AnimatePresence>
+            {hovered && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 2 }}
+                className={cn(
+                  "px-3 py-1 whitespace-pre rounded-md bg-gray-800/90 border border-gray-600 absolute left-1/2 -translate-x-1/2 -top-12 w-fit text-sm z-10",
+                  titleColor || "text-white"
+                )}
+              >
+                {title}
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <motion.div
+            style={{ width: widthIcon, height: heightIcon }}
+            className="flex items-center justify-center"
+          >
+            {icon}
+          </motion.div>
+        </div>
+      </motion.div>
+    </a>
   );
 } 
