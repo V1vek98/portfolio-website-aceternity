@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative min-h-screen">
       {/* Navigation */}
       <Navigation />
       
@@ -22,12 +22,10 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="section-container">
-          <div className="content-container">
-            <div className="center-content space-y-responsive">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">About Section</h2>
-              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
-            </div>
+        <div className="max-w-7xl mx-auto container-spacing w-full">
+          <div className="flex-center-col text-center space-y-responsive">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">About Section</h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
           </div>
         </div>
       </motion.section>
@@ -40,12 +38,10 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="section-container">
-          <div className="content-container">
-            <div className="center-content space-y-responsive">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Experience Section</h2>
-              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
-            </div>
+        <div className="max-w-7xl mx-auto container-spacing w-full">
+          <div className="flex-center-col text-center space-y-responsive">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Experience Section</h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
           </div>
         </div>
       </motion.section>
@@ -58,12 +54,10 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="section-container">
-          <div className="content-container">
-            <div className="center-content space-y-responsive">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Projects Section</h2>
-              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
-            </div>
+        <div className="max-w-7xl mx-auto container-spacing w-full">
+          <div className="flex-center-col text-center space-y-responsive">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Projects Section</h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
           </div>
         </div>
       </motion.section>
@@ -76,12 +70,10 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="section-container">
-          <div className="content-container">
-            <div className="center-content space-y-responsive">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Skills Section</h2>
-              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
-            </div>
+        <div className="max-w-7xl mx-auto container-spacing w-full">
+          <div className="flex-center-col text-center space-y-responsive">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Skills Section</h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
           </div>
         </div>
       </motion.section>
@@ -94,12 +86,10 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="section-container">
-          <div className="content-container">
-            <div className="center-content space-y-responsive">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Testimonials Section</h2>
-              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
-            </div>
+        <div className="max-w-7xl mx-auto container-spacing w-full">
+          <div className="flex-center-col text-center space-y-responsive">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Testimonials Section</h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
           </div>
         </div>
       </motion.section>
@@ -112,12 +102,10 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="section-container">
-          <div className="content-container">
-            <div className="center-content space-y-responsive">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Contact Section</h2>
-              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
-            </div>
+        <div className="max-w-7xl mx-auto container-spacing w-full">
+          <div className="flex-center-col text-center space-y-responsive">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Contact Section</h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Coming next...</p>
           </div>
         </div>
       </motion.section>

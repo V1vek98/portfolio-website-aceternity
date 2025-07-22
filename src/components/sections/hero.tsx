@@ -20,7 +20,7 @@ const stats = [
   { label: "Years Experience", value: 4, suffix: "+" },
   { label: "Projects Completed", value: 50, suffix: "+" },
   { label: "Data Models Built", value: 25, suffix: "+" },
-  { label: "Dashboards Built", value: 50, suffix: "+" }
+  { label: "Dashboards Built", value: 100, suffix: "+" }
 ];
 
 export function Hero() {
@@ -29,19 +29,19 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden nav-offset">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <AnimatedBackground />
       
       <div className="relative z-10 section-container">
         <div className="content-container">
-          <div className="center-content py-16 md:py-24">
+          <div className="flex-center-col w-full h-full py-12 md:py-16">
             {/* Main Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6 md:space-y-8"
+              className="flex-center-col space-y-6 md:space-y-8 w-full"
             >
               {/* Name and Title */}
               <div className="space-y-4 md:space-y-6 text-center">
@@ -172,7 +172,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.0 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-16 md:mt-20 pt-8 md:pt-12 border-t border-gray-800"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20 md:mt-28 pt-8 md:pt-12 border-t border-gray-800"
             >
               {stats.map((stat, index) => (
                 <motion.div

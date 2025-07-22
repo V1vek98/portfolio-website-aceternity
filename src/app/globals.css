@@ -17,14 +17,12 @@
   --warning: #f59e0b;
   --error: #ef4444;
   
-  /* Improved Spacing and Layout Variables */
+  /* Spacing Variables */
   --nav-height: 80px;
   --section-padding: 120px;
   --section-padding-mobile: 80px;
   --container-padding: 24px;
   --container-padding-mobile: 16px;
-  --max-content-width: 1200px;
-  --max-section-width: 1400px;
 }
 
 @theme inline {
@@ -64,21 +62,7 @@ body {
   scroll-padding-top: var(--nav-height);
 }
 
-/* Improved Container System for Perfect Centering */
-.main-container {
-  width: 100%;
-  max-width: var(--max-section-width);
-  margin: 0 auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
-}
-
-.content-container {
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-}
-
+/* Improved Container Utilities */
 .container-spacing {
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
@@ -89,36 +73,8 @@ body {
   padding-bottom: var(--section-padding);
 }
 
-.section-container {
-  width: 100%;
-  max-width: var(--max-section-width);
-  margin: 0 auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
-}
-
-/* Responsive Container Adjustments */
-@media (max-width: 1440px) {
-  :root {
-    --max-section-width: 1200px;
-  }
-}
-
-@media (max-width: 1200px) {
-  :root {
-    --max-section-width: 1024px;
-    --max-content-width: 900px;
-  }
-}
-
 @media (max-width: 768px) {
-  :root {
-    --nav-height: 70px;
-    --max-section-width: 100%;
-    --max-content-width: 100%;
-  }
-  
-  .container-spacing, .section-container, .main-container {
+  .container-spacing {
     padding-left: var(--container-padding-mobile);
     padding-right: var(--container-padding-mobile);
   }
@@ -152,7 +108,7 @@ body {
   justify-content: center;
 }
 
-.center-content {
+.text-center-perfect {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -160,15 +116,33 @@ body {
   justify-content: center;
 }
 
-/* Improved Typography - Removed forced centering */
+/* Viewport Centering - Perfect center regardless of screen size */
+.viewport-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.viewport-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* Improved Typography Spacing */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   margin-bottom: 0.75em;
+  text-align: center;
 }
 
 p {
   line-height: 1.7;
   margin-bottom: 1.25em;
+  text-align: center;
 }
 
 p:last-child {
@@ -236,7 +210,7 @@ p:last-child {
   border-radius: 16px;
   transition: all 0.3s ease;
   padding: 1.5rem;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .glass-card:hover {
@@ -327,7 +301,7 @@ p:last-child {
   overflow: hidden;
   transition: all 0.3s ease;
   padding: 1rem 2rem;
-  margin: 0;
+  margin: 0.5rem;
 }
 
 .interactive-btn::before {
@@ -388,15 +362,6 @@ p:last-child {
 }
 
 @media (max-width: 480px) {
-  :root {
-    --nav-height: 65px;
-    --section-padding-mobile: 60px;
-  }
-  
-  html {
-    font-size: 13px;
-  }
-  
   .space-y-responsive > * + * {
     margin-top: 0.75rem;
   }
@@ -432,6 +397,25 @@ p:last-child {
   justify-content: center;
 }
 
+/* Full viewport centering for sections */
+.section-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
 /* Custom Selection */
 ::selection {
   background: var(--primary);
@@ -459,44 +443,37 @@ p:last-child {
   100% { transform: rotate(360deg); }
 }
 
-/* High Resolution Display Support */
-@media (min-width: 1920px) {
+/* Responsive Utilities */
+@media (max-width: 768px) {
   :root {
-    --max-section-width: 1600px;
-    --max-content-width: 1400px;
-    --container-padding: 32px;
-  }
-}
-
-@media (min-width: 2560px) {
-  :root {
-    --max-section-width: 2000px;
-    --max-content-width: 1800px;
-    --container-padding: 48px;
+    --nav-height: 70px;
   }
   
   html {
-    font-size: 18px;
+    font-size: 14px;
+  }
+  
+  .typewriter {
+    animation: typewriter 2s steps(30, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .interactive-btn {
+    padding: 0.875rem 1.5rem;
+    margin: 0.25rem;
   }
 }
 
-/* Ultra-wide Display Support */
-@media (min-width: 3440px) {
+@media (max-width: 480px) {
   :root {
-    --max-section-width: 2400px;
-    --max-content-width: 2000px;
-    --container-padding: 64px;
+    --nav-height: 65px;
+    --section-padding-mobile: 60px;
   }
   
   html {
-    font-size: 20px;
-  }
-}
-
-/* Prevent Content Stretching on Massive Screens */
-@media (min-width: 4000px) {
-  :root {
-    --max-section-width: 2800px;
-    --max-content-width: 2400px;
+    font-size: 13px;
   }
 }
