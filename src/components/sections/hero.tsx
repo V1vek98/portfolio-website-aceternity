@@ -54,11 +54,11 @@ export function Hero() {
             </motion.div>
 
             {/* Name and Title */}
-            <div className="space-y-responsive">
+            <div className="space-y-1">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
               >
                 <span className="text-white">Hi, I'm </span>
@@ -68,7 +68,7 @@ export function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-xl md:text-3xl lg:text-4xl font-semibold text-gray-300 min-h-[3rem] md:min-h-[4rem]"
               >
                 <Typewriter 
