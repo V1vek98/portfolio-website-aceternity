@@ -233,7 +233,7 @@ function IconContainer({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 2 }}
                 className={cn(
-                  "px-3 py-1 whitespace-pre rounded-md bg-gray-800/90 border border-gray-600 absolute left-1/2 -translate-x-1/2 -top-12 w-fit text-sm z-10",
+                  "px-3 py-1 whitespace-pre rounded-md bg-gray-800/90 border border-gray-600 absolute left-1/2 -translate-x-1/2 -top-12 w-fit text-sm font-bold z-10",
                   titleColor || "text-white"
                 )}
               >
