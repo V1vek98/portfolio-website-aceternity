@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, MapPin, BarChart3, Database } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Typewriter, AnimatedCounter } from "@/components/ui/typewriter";
+import { TextWithColorfulKeywords } from "@/components/ui/colourful-text";
 import { personalInfo, socialLinks } from "@/data/portfolio";
 
 
@@ -22,6 +23,9 @@ const stats = [
   { label: "Data Models Built", value: 25, suffix: "+" },
   { label: "Dashboards Built", value: 100, suffix: "+" }
 ];
+
+// Keywords to make colorful in the bio
+const colorfulKeywords = ["Python", "SQL", "PowerBI", "Tableau", "AI", "NLP"];
 
 export function Hero() {
   return (
@@ -74,7 +78,10 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 1.0 }}
                 className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed text-center"
               >
-                {personalInfo.bio}
+                <TextWithColorfulKeywords 
+                  text={personalInfo.bio} 
+                  keywords={colorfulKeywords}
+                />
               </motion.p>
 
               {/* Location */}
@@ -92,14 +99,21 @@ export function Hero() {
               {/* removed social links section */}
             </motion.div>
 
+            {/* Spacer above the divider line */}
+            <div className="h-4 md:h-6"></div>
+
             {/* Stats Section */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20 md:mt-28 pt-8 md:pt-12 border-t border-gray-800"
+              className="border-t border-gray-800"
             >
-              {stats.map((stat, index) => (
+              {/* Spacer below the divider line */}
+              <div className="h-4 md:h-6"></div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   className="text-center space-y-2"
@@ -119,6 +133,7 @@ export function Hero() {
                   </div>
                 </motion.div>
               ))}
+              </div>
             </motion.div>
           </div>
 
