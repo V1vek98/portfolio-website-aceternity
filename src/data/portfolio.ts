@@ -1,10 +1,3 @@
-export interface Skill {
-  name: string;
-  level: number;
-  category: "technical" | "tools" | "soft";
-  icon?: string;
-}
-
 export interface Experience {
   id: string;
   title: string;
@@ -38,16 +31,6 @@ export interface Project {
   outcomes: string[];
 }
 
-export interface Testimonial {
-  id: string;
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  avatar: string;
-  rating: number;
-}
-
 export interface PersonalInfo {
   name: string;
   title: string;
@@ -73,34 +56,6 @@ export const personalInfo: PersonalInfo = {
   avatar: "/images/avatar.jpg",
   resume: "/files/resume.pdf",
 };
-
-export const skills: Skill[] = [
-  // Technical Skills
-  { name: "Python", level: 95, category: "technical" },
-  { name: "SQL", level: 92, category: "technical" },
-  { name: "R", level: 88, category: "technical" },
-  { name: "Machine Learning", level: 87, category: "technical" },
-  { name: "Statistical Analysis", level: 93, category: "technical" },
-  { name: "Data Mining", level: 89, category: "technical" },
-  { name: "Predictive Modeling", level: 86, category: "technical" },
-  { name: "A/B Testing", level: 91, category: "technical" },
-  
-  // Tools
-  { name: "Tableau", level: 94, category: "tools" },
-  { name: "PowerBI", level: 87, category: "tools" },
-  { name: "Excel", level: 96, category: "tools" },
-  { name: "Jupyter", level: 93, category: "tools" },
-  { name: "Apache Spark", level: 82, category: "tools" },
-  { name: "AWS", level: 85, category: "tools" },
-  { name: "Google Analytics", level: 89, category: "tools" },
-  { name: "Snowflake", level: 84, category: "tools" },
-  
-  // Soft Skills
-  { name: "Data Storytelling", level: 94, category: "soft" },
-  { name: "Business Communication", level: 91, category: "soft" },
-  { name: "Project Management", level: 87, category: "soft" },
-  { name: "Problem Solving", level: 95, category: "soft" },
-];
 
 export const experience: Experience[] = [
   {
@@ -364,36 +319,6 @@ export const projects: Project[] = [
   }
 ];
 
-
-export const testimonials: Testimonial[] = [
-  {
-    id: "1",
-    name: "Sarah Johnson",
-    role: "VP of Marketing",
-    company: "TechFlow Solutions",
-    content: "Alex is an exceptional data analyst who consistently delivers actionable insights that drive real business results. Their ability to translate complex data into clear, compelling narratives has been invaluable to our team.",
-    avatar: "/images/testimonial-1.jpg",
-    rating: 5
-  },
-  {
-    id: "2",
-    name: "Michael Chen",
-    role: "Director of Product",
-    company: "DataInsights Corp",
-    content: "Working with Alex was a game-changer for our product team. Their analytical rigor and attention to detail helped us make data-driven decisions that improved our product metrics significantly.",
-    avatar: "/images/testimonial-2.jpg",
-    rating: 5
-  },
-  {
-    id: "3",
-    name: "Emily Rodriguez",
-    role: "CEO",
-    company: "MetricFlow Analytics",
-    content: "Alex has a rare combination of technical expertise and business acumen. They can dive deep into complex datasets and emerge with insights that directly impact our bottom line.",
-    avatar: "/images/testimonial-3.jpg",
-    rating: 5
-  }
-];
 
 export const socialLinks = [
   { name: "LinkedIn", url: personalInfo.linkedin, icon: "linkedin" },

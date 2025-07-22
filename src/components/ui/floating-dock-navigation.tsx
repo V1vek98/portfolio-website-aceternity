@@ -1,7 +1,7 @@
 "use client";
 
 import { FloatingDock } from "./floating-dock";
-import { Mail, Linkedin, Github, User, Briefcase, FolderOpen, Award, MessageSquare, Phone, Home, Info } from "lucide-react";
+import { Mail, Linkedin, Github, Briefcase, FolderOpen, Phone, Home } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
 export function FloatingDockNavigation() {
@@ -11,12 +11,6 @@ export function FloatingDockNavigation() {
       icon: <Home className="h-full w-full text-sky-500" />,
       href: "#home",
       titleColor: "text-sky-500",
-    },
-    {
-      title: "About",
-      icon: <Info className="h-full w-full text-blue-500" />,
-      href: "#about",
-      titleColor: "text-blue-500",
     },
     {
       title: "Experience",
@@ -29,18 +23,6 @@ export function FloatingDockNavigation() {
       icon: <FolderOpen className="h-full w-full text-yellow-500" />,
       href: "#projects",
       titleColor: "text-yellow-500",
-    },
-    {
-      title: "Skills",
-      icon: <Award className="h-full w-full text-amber-400" />,
-      href: "#skills",
-      titleColor: "text-amber-400",
-    },
-    {
-      title: "Testimonials",
-      icon: <MessageSquare className="h-full w-full text-green-500" />,
-      href: "#testimonials",
-      titleColor: "text-green-500",
     },
     {
       title: "Contact",
