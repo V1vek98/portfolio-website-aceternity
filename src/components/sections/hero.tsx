@@ -5,6 +5,7 @@ import { Mail, Linkedin, Github, MapPin, BarChart3, Database } from "lucide-reac
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Typewriter, AnimatedCounter } from "@/components/ui/typewriter";
 import { TextWithColorfulKeywords } from "@/components/ui/colourful-text";
+import { SparklesCore } from "@/components/ui/sparkles";
 import { personalInfo, socialLinks } from "@/data/portfolio";
 
 
@@ -134,6 +135,25 @@ export function Hero() {
                 </motion.div>
               ))}
               </div>
+            </motion.div>
+
+            {/* Sparkles Section */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, delay: 2.5 }}
+              className="relative w-full h-40 md:h-52 mt-8 md:mt-12"
+            >
+              <SparklesCore
+                id="hero-sparkles"
+                background="transparent"
+                minSize={0.6}
+                maxSize={1.4}
+                particleDensity={50}
+                className="w-full h-full"
+                particleColor="#3b82f6"
+                speed={1}
+              />
             </motion.div>
           </div>
 
