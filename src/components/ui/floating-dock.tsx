@@ -30,7 +30,12 @@ const FloatingDockMobile = ({
 }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn("relative block md:hidden", className)}>
+    <motion.div 
+      className={cn("relative block md:hidden", className)}
+      initial={{ opacity: 0, y: 50, scale: 0.8 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+    >
       <AnimatePresence>
         {open && (
           <motion.div
@@ -77,9 +82,11 @@ const FloatingDockMobile = ({
           </motion.div>
         )}
       </AnimatePresence>
-      <button
+      <motion.button
         onClick={() => setOpen(!open)}
         className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +107,8 @@ const FloatingDockMobile = ({
         >
           <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </svg>
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 };
 
@@ -121,9 +128,23 @@ const FloatingDockDesktop = ({
         "mx-auto hidden md:flex h-16 gap-6 items-center rounded-3xl bg-gray-900/80 px-6",
         className
       )}
+      initial={{ opacity: 0, y: 50, scale: 0.8 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
     >
-      {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+      {items.map((item, index) => (
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, scale: 0.3 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ 
+            duration: 0.4, 
+            delay: 0.7 + index * 0.1,
+            ease: "easeOut"
+          }}
+        >
+          <IconContainer mouseX={mouseX} {...item} />
+        </motion.div>
       ))}
     </motion.div>
   );
@@ -199,25 +220,29 @@ function IconContainer({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="aspect-square rounded-full bg-gray-700/50 flex items-center justify-center relative"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, x: "-50%" }}
-              animate={{ opacity: 1, y: 0, x: "-50%" }}
-              exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-800/90 border border-gray-600 text-white absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
-            >
-              {title}
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <motion.div
-          style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center"
-        >
-          {icon}
-        </motion.div>
+        <div className="relative flex items-center justify-center w-10 h-10">
+          <AnimatePresence>
+            {hovered && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 2 }}
+                className="px-3 py-1 whitespace-pre rounded-md bg-gray-800/90 border border-gray-600 text-white absolute left-1/2 -translate-x-1/2 -top-12 w-fit text-sm z-10"
+              >
+                {title}
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <motion.div
+            style={{ width: widthIcon, height: heightIcon }}
+            className="flex items-center justify-center"
+          >
+            {icon}
+          </motion.div>
+        </div>
       </motion.div>
     </a>
   );

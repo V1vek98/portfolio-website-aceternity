@@ -1,17 +1,17 @@
 "use client";
 
-import { Navigation } from "@/components/ui/navigation";
 import { Hero } from "@/components/sections/hero";
+import { FloatingDockNavigation } from "@/components/ui/floating-dock-navigation";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      {/* Navigation */}
-      <Navigation />
-      
       {/* Hero Section */}
       <Hero />
+      
+      {/* Floating Dock Navigation */}
+      <FloatingDockNavigation />
       
       {/* Temporary placeholder for other sections - will be built next */}
       <motion.section

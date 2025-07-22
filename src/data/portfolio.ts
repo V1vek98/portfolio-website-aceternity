@@ -256,16 +256,6 @@ export const testimonials: Testimonial[] = [
   }
 ];
 
-export const navigationItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
-];
-
 export const socialLinks = [
   { name: "LinkedIn", url: personalInfo.linkedin, icon: "linkedin" },
   { name: "GitHub", url: personalInfo.github, icon: "github" },
