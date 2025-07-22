@@ -99,7 +99,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="flex items-center justify-center gap-2 text-gray-500"
+                className="flex items-center justify-center gap-2 text-gray-500 max-w-4xl mx-auto"
               >
                 <MapPin size={18} />
                 <span className="text-base md:text-lg">{personalInfo.location}</span>
@@ -110,7 +110,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-4"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-4 max-w-4xl mx-auto"
               >
                 <motion.button
                   onClick={handleContactClick}
@@ -128,7 +128,7 @@ export function Hero() {
                     e.preventDefault();
                     scrollToElement("projects");
                   }}
-                  className="flex items-center gap-3 px-8 py-4 border border-gray-600 text-gray-300 rounded-lg font-medium text-lg transition-all duration-200 hover:border-gray-500 hover:text-white glass-card"
+                  className="flex items-center gap-3 px-8 py-4 border border-gray-600 text-gray-300 rounded-lg font-medium text-lg transition-all duration-200 hover:border-gray-500 hover:text-white"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -154,7 +154,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
-                className="flex items-center justify-center gap-4 md:gap-6 pt-4"
+                className="flex items-center justify-center gap-4 md:gap-6 pt-4 max-w-4xl mx-auto"
               >
                 {socialLinks.map((link, index) => {
                   const IconComponent = link.icon === "linkedin" ? Linkedin : 

@@ -98,7 +98,7 @@ export function Navigation() {
                 href={personalInfo.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-base lg:text-lg transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow"
+                className="flex items-center justify-center gap-3 px-6 py-3 min-w-[140px] bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-base lg:text-lg transition-all duration-200 hover:from-blue-700 hover:to-purple-700 glow"
                 whileHover={{ scale: 1.25 }}
                 whileTap={{ scale: 0.95 }}
               >
