@@ -221,10 +221,10 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
             </div>
           </motion.div>
 
-          {/* Expandable Achievements - moved to bottom left */}
-          <div className="flex justify-start" style={{ marginTop: '32px' }}>
+          {/* Expandable Achievements - moved to center */}
+          <div className="flex justify-center w-full" style={{ marginTop: '32px' }}>
             <motion.div
-              className="text-left"
+              className="flex flex-col items-center w-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 + index * 0.2 }}
@@ -232,7 +232,7 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="flex items-center gap-2 text-blue-400 hover:text-blue-300 
-                           transition-colors duration-200 mb-4 group/expand"
+                           transition-colors duration-200 mb-4 group/expand justify-center"
               >
                 <Award size={16} />
                 <span className="font-medium">Key Achievements</span>
@@ -251,17 +251,17 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="overflow-hidden"
+                    className="overflow-hidden w-full flex justify-center"
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '16px', alignItems: 'center', width: '100%' }}>
                       {exp.achievements.map((achievement, achIndex) => (
                         <motion.div
                           key={achIndex}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: achIndex * 0.1 }}
-                          style={{ padding: '12px' }}
-                          className="flex items-center gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30"
+                          style={{ padding: '12px', width: '100%', maxWidth: '600px' }}
+                          className="flex items-center gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30 justify-center"
                         >
                           <motion.div
                             style={{
@@ -281,7 +281,7 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
                               ease: "easeInOut"
                             }}
                           />
-                          <p className="text-gray-300 text-sm leading-relaxed">
+                          <p className="text-gray-300 text-sm leading-relaxed text-center w-full">
                             {achievement}
                           </p>
                         </motion.div>
