@@ -59,17 +59,23 @@ interface MetricHighlightProps {
 }
 
 function MetricHighlight({ metric, description, index, delay }: MetricHighlightProps) {
-  const numericValue = parseInt(metric.replace(/[^\d]/g, '')) || 0;
-  const suffix = metric.replace(/\d/g, '');
+  // Extract the numeric part and the suffix (everything after the last digit)
+  const match = metric.match(/([\d,]+)(.*)/);
+  let numericValue = 0;
+  let suffix = '';
+  if (match) {
+    numericValue = parseInt(match[1].replace(/,/g, '')) || 0;
+    suffix = match[2];
+  }
 
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: delay + index * 0.1 }}
-      className="flex items-center justify-center p-6 bg-gradient-to-r from-blue-500/5 to-purple-500/5 
+      className="flex items-center justify-center p-7 bg-gradient-to-r from-blue-500/5 to-purple-500/5 
                  rounded-lg border border-blue-500/10 backdrop-blur-sm"
-      style={{ width: '200px', height: '80px' }}
+      style={{ width: '220px', height: '90px' }}
     >
       <div className="text-center">
         <div className="text-3xl font-bold text-blue-400 mb-2">
