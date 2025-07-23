@@ -221,14 +221,14 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
             </div>
           </motion.div>
 
-          {/* Expandable Achievements */}
-          <motion.div
-            className="text-center md:text-left"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 + index * 0.2 }}
-          >
-            <div className="flex justify-end">
+          {/* Expandable Achievements - moved to bottom left */}
+          <div className="flex justify-start" style={{ marginTop: '32px' }}>
+            <motion.div
+              className="text-left"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9 + index * 0.2 }}
+            >
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="flex items-center gap-2 text-blue-400 hover:text-blue-300 
@@ -243,55 +243,55 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
                   <ChevronDown size={16} />
                 </motion.div>
               </button>
-            </div>
 
-            <AnimatePresence>
-              {isExpanded && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '16px' }}>
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <motion.div
-                        key={achIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: achIndex * 0.1 }}
-                        style={{ padding: '12px' }}
-                        className="flex items-center gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30"
-                      >
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '16px' }}>
+                      {exp.achievements.map((achievement, achIndex) => (
                         <motion.div
-                          style={{
-                            width: '8px',
-                            height: '8px',
-                            borderRadius: '50%',
-                            backgroundColor: '#3b82f6',
-                            flexShrink: 0
-                          }}
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.7, 1, 0.7]
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
-                        <p className="text-gray-300 text-sm leading-relaxed">
-                          {achievement}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+                          key={achIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: achIndex * 0.1 }}
+                          style={{ padding: '12px' }}
+                          className="flex items-center gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30"
+                        >
+                          <motion.div
+                            style={{
+                              width: '8px',
+                              height: '8px',
+                              borderRadius: '50%',
+                              backgroundColor: '#3b82f6',
+                              flexShrink: 0
+                            }}
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              opacity: [0.7, 1, 0.7]
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                          />
+                          <p className="text-gray-300 text-sm leading-relaxed">
+                            {achievement}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </div>
         </div>
     </motion.div>
   );
