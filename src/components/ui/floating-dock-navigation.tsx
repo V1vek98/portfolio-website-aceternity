@@ -54,7 +54,7 @@ export function FloatingDockNavigation() {
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
       <FloatingDock
         items={links}
-        desktopClassName="bg-black/20 backdrop-blur-md border border-white/20"
+        desktopClassName="bg-black/20 backdrop-blur-md border border-white/20 px-8"
         mobileClassName="bg-black/20 backdrop-blur-md border border-white/20"
       />
     </div>

@@ -41,10 +41,25 @@
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
+}
+
+/* Reset padding more selectively to avoid overriding Tailwind utilities */
+body,
+h1, h2, h3, h4, h5, h6,
+p, 
+ul, ol, li,
+blockquote,
+figure,
+fieldset {
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
