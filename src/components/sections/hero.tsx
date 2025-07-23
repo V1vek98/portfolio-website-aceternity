@@ -33,6 +33,18 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <AnimatedBackground />
+
+      {/* Sparkles Full Background */}
+      <SparklesCore
+        id="hero-sparkles"
+        background="transparent"
+        minSize={0.6}
+        maxSize={1.4}
+        particleDensity={50}
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+        particleColor="#3b82f6"
+        speed={1}
+      />
       
       <div className="relative z-10 section-container">
         <div className="content-container">
@@ -137,54 +149,35 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Sparkles Section */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 2.5 }}
-              className="relative w-full h-40 md:h-52 mt-8 md:mt-12"
-            >
-              <SparklesCore
-                id="hero-sparkles"
-                background="transparent"
-                minSize={0.6}
-                maxSize={1.4}
-                particleDensity={50}
-                className="w-full h-full"
-                particleColor="#3b82f6"
-                speed={1}
-              />
-            </motion.div>
+            {/* Floating Data Icons - Positioned to avoid content overlap */}
+            <div className="hidden lg:block">
+              <motion.div
+                className="absolute top-24 left-4 xl:left-16 text-blue-500/20"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Database size={28} />
+              </motion.div>
+              
+              <motion.div
+                className="absolute top-48 right-4 xl:right-20 text-purple-500/20"
+                animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <BarChart3 size={24} />
+              </motion.div>
+              
+              <motion.div
+                className="absolute bottom-48 left-8 xl:left-24 text-blue-400/20"
+                animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <BarChart3 size={20} />
+              </motion.div>
+            </div>
+
+
           </div>
-
-          {/* Floating Data Icons - Positioned to avoid content overlap */}
-          <div className="hidden lg:block">
-            <motion.div
-              className="absolute top-24 left-4 xl:left-16 text-blue-500/20"
-              animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Database size={28} />
-            </motion.div>
-            
-            <motion.div
-              className="absolute top-48 right-4 xl:right-20 text-purple-500/20"
-              animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <BarChart3 size={24} />
-            </motion.div>
-            
-            <motion.div
-              className="absolute bottom-48 left-8 xl:left-24 text-blue-400/20"
-              animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <BarChart3 size={20} />
-            </motion.div>
-          </div>
-
-
         </div>
       </div>
     </section>
