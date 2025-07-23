@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { experience } from "@/data/portfolio";
 import { AnimatedCounter } from "@/components/ui/typewriter";
+import { Meteors } from "@/components/ui/meteors";
 
 interface TechnologyBadgeProps {
   tech: string;
@@ -118,12 +119,15 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
         y: -5,
         transition: { duration: 0.3 }
       }}
-      className="w-full max-w-4xl mx-auto mb-8 group"
+      className="w-full max-w-4xl mx-auto mb-8 group relative"
     >
         <div style={{ padding: '48px' }} className="relative bg-gray-900/40 backdrop-blur-md border border-gray-700/50 
                         rounded-xl hover:border-blue-500/30 transition-all duration-500
-                        hover:shadow-2xl hover:shadow-blue-500/10">
-          
+                        hover:shadow-2xl hover:shadow-blue-500/10 overflow-hidden">
+          {/* Meteor Effect Background */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <Meteors number={18} />
+          </div>
           {/* Header */}
           <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-center md:justify-between gap-6 mb-8">
             <div className="text-center md:text-left">

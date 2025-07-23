@@ -63,7 +63,9 @@ const FloatingDockMobile = ({
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    if (item.href.startsWith('#')) {
+                    if (item.href.startsWith('mailto:')) {
+                      window.location.href = item.href;
+                    } else if (item.href.startsWith('#')) {
                       const element = document.getElementById(item.href.substring(1));
                       if (element) {
                         element.scrollIntoView({ behavior: 'smooth' });
@@ -180,23 +182,23 @@ function IconContainer({
   let width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
-    damping: 12,
+    damping: 20, // Increased from 12 to 20 for snappier contraction
   });
   let height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
-    damping: 12,
+    damping: 20, // Increased from 12 to 20 for snappier contraction
   });
 
   let widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
     stiffness: 150,
-    damping: 12,
+    damping: 20, // Increased from 12 to 20 for snappier contraction
   });
   let heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
-    damping: 12,
+    damping: 20, // Increased from 12 to 20 for snappier contraction
   });
 
   const [hovered, setHovered] = useState(false);
@@ -206,7 +208,9 @@ function IconContainer({
       href={href}
       onClick={(e) => {
         e.preventDefault();
-        if (href.startsWith('#')) {
+        if (href.startsWith('mailto:')) {
+          window.location.href = href;
+        } else if (href.startsWith('#')) {
           const element = document.getElementById(href.substring(1));
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -233,7 +237,7 @@ function IconContainer({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 2 }}
                 className={cn(
-                  "px-8 py-4 whitespace-pre rounded-xl bg-gray-800 border-3 border-gray-600 absolute left-1/2 -translate-x-1/2 -top-16 w-fit text-lg font-bold z-10",
+                  "px-4 py-2 whitespace-pre rounded-xl bg-gray-800 border-3 border-gray-600 absolute left-1/2 -translate-x-1/2 -top-16 w-fit text-base font-bold z-10",
                   titleColor || "text-white"
                 )}
               >
