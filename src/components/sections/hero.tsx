@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, MapPin, BarChart3, Database } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Typewriter, AnimatedCounter } from "@/components/ui/typewriter";
-import { TextWithColorfulKeywords } from "@/components/ui/colourful-text";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { personalInfo, socialLinks } from "@/data/portfolio";
 
@@ -91,10 +90,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 1.0 }}
                 className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed text-center"
               >
-                <TextWithColorfulKeywords 
-                  text={personalInfo.bio} 
-                  keywords={colorfulKeywords}
-                />
+                {personalInfo.bio}
               </motion.p>
 
               {/* Location */}
