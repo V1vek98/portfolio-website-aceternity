@@ -245,12 +245,11 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   {/* Project Details */}
                   <div className="w-full">
                     <h3 className="text-2xl font-semibold text-white mb-6 text-center">Project Details</h3>
-                    <div className="flex flex-col gap-5 items-center w-full">
+                    <div className="flex flex-col gap-3 items-center w-full">
                       {project.details.map((detail, detailIndex) => (
                         <div
                           key={detailIndex}
-                          style={{ padding: '12px', width: '100%', maxWidth: '600px' }}
-                          className="flex items-center gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30 justify-center"
+                          className="bg-blue-500/10 border border-blue-500/20 rounded-lg py-3 px-4 flex items-center justify-center text-center min-h-fit mb-4 w-full"
                         >
                           <motion.div
                             style={{
@@ -269,8 +268,9 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                               repeat: Infinity,
                               ease: "easeInOut"
                             }}
+                            className="mr-4"
                           />
-                          <p className="text-gray-300 text-sm leading-relaxed text-center w-full">
+                          <p className="text-gray-300 leading-relaxed text-lg text-center m-0 p-0 w-full">
                             {detail}
                           </p>
                         </div>
@@ -279,45 +279,45 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
 
                   {/* Challenges */}
-                  <div className="w-full">
+                  <div className="w-full mb-8">
                     <div className="flex items-center gap-3 mb-6 justify-center">
                       <Target className="text-red-400" size={24} />
                       <h3 className="text-2xl font-semibold text-white">Challenges</h3>
                     </div>
-                    <div className="space-y-4">
+                    <div className="!space-y-4">
                       {project.challenges.map((challenge, challengeIndex) => (
-                        <div key={challengeIndex} className="bg-red-500/10 border border-red-500/20 rounded-lg p-6 text-center">
-                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph text-center">{challenge}</p>
+                        <div key={challengeIndex} className="bg-red-500/10 border border-red-500/20 rounded-lg !py-3 !px-4 !flex !items-center !justify-center !text-center !min-h-fit !mb-4">
+                          <p className="text-gray-300 !leading-relaxed !text-lg !text-center !m-0 !p-0">{challenge}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Solutions */}
-                  <div className="w-full">
+                  <div className="w-full mb-8">
                     <div className="flex items-center gap-3 mb-6 justify-center">
                       <Lightbulb className="text-yellow-400" size={24} />
                       <h3 className="text-2xl font-semibold text-white">Solutions</h3>
                     </div>
-                    <div className="space-y-4">
+                    <div className="!space-y-4">
                       {project.solutions.map((solution, solutionIndex) => (
-                        <div key={solutionIndex} className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-6 text-center">
-                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph text-center">{solution}</p>
+                        <div key={solutionIndex} className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg !py-3 !px-4 !flex !items-center !justify-center !text-center !min-h-fit !mb-4">
+                          <p className="text-gray-300 !leading-relaxed !text-lg !text-center !m-0 !p-0">{solution}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Outcomes */}
-                  <div className="w-full">
+                  <div className="w-full mb-8">
                     <div className="flex items-center gap-3 mb-6 justify-center">
                       <TrendingUp className="text-green-400" size={24} />
                       <h3 className="text-2xl font-semibold text-white">Outcomes</h3>
                     </div>
-                    <div className="space-y-4">
+                    <div className="!space-y-4">
                       {project.outcomes.map((outcome, outcomeIndex) => (
-                        <div key={outcomeIndex} className="bg-green-500/10 border border-green-500/20 rounded-lg p-6 text-center">
-                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph text-center">{outcome}</p>
+                        <div key={outcomeIndex} className="bg-green-500/10 border border-green-500/20 rounded-lg !py-3 !px-4 !flex !items-center !justify-center !text-center !min-h-fit !mb-4">
+                          <p className="text-gray-300 !leading-relaxed !text-lg !text-center !m-0 !p-0">{outcome}</p>
                         </div>
                       ))}
                     </div>

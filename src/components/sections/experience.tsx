@@ -253,7 +253,7 @@ function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="overflow-hidden w-full flex justify-center"
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '16px', alignItems: 'center', width: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '16px', alignItems: 'center', width: '100%' }}>
                       {exp.achievements.map((achievement, achIndex) => (
                         <motion.div
                           key={achIndex}
