@@ -55,9 +55,12 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         }}
         className="w-full group relative"
       >
-        <div className="relative bg-gray-900/40 backdrop-blur-md border border-gray-700/50 
-                        rounded-xl hover:border-purple-500/30 transition-all duration-500
-                        hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden p-6">
+        <div 
+          onClick={() => setIsExpanded(true)}
+          className="relative bg-gray-900/40 backdrop-blur-md border border-gray-700/50 
+                      rounded-xl hover:border-purple-500/30 transition-all duration-500
+                      hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden p-6 cursor-pointer"
+        >
           
 
 
@@ -109,6 +112,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
                 >
                   <ExternalLink size={14} />
@@ -118,6 +122,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="flex items-center gap-2 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
                 >
                   <Github size={14} />
@@ -125,13 +130,10 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                 </a>
               </div>
 
-              <button
-                onClick={() => setIsExpanded(true)}
-                className="flex items-center gap-1 px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg transition-all duration-200"
-              >
-                Details
+              <div className="flex items-center gap-1 px-3 py-1.5 bg-purple-600 text-white text-sm rounded-lg">
+                Click to expand
                 <ChevronDown size={14} />
-              </button>
+              </div>
             </div>
           </div>
         </div>
