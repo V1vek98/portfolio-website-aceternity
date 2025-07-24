@@ -44,7 +44,7 @@ const ContactCard = ({
   iconColor = "text-blue-400",
   bgColor = "from-blue-500/20 to-blue-600/20"
 }: { 
-  icon: any; 
+  icon: React.ComponentType<{ size?: number; className?: string }>; 
   title: string; 
   info: string; 
   href?: string;
@@ -149,7 +149,7 @@ const SocialCard = ({
   bgColor = "from-blue-500 to-blue-600",
   hoverColor = "from-blue-600 to-blue-700"
 }: { 
-  icon: any; 
+  icon: React.ComponentType<{ size?: number; className?: string }>; 
   title: string; 
   description: string;
   href: string;
@@ -232,7 +232,7 @@ export function Contact() {
             Get In Touch
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ready to discuss your next data project? I'd love to hear from you. Let's explore how we can turn your data into actionable insights.
+            Ready to discuss your next data project? I&apos;d love to hear from you. Let&apos;s explore how we can turn your data into actionable insights.
           </p>
         </motion.div>
 
@@ -283,7 +283,7 @@ export function Contact() {
             Connect Online
           </h2>
           <p className="text-gray-300 mb-12">
-            Let's connect and explore opportunities together
+            Let&apos;s connect and explore opportunities together
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">

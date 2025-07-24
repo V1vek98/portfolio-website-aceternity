@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { 
-  ExternalLink, 
   Github,
   Clock,
   Target,
@@ -64,9 +64,11 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           <div className="relative z-10 flex flex-col space-y-16 items-center text-center">
             {/* Project Image */}
             <div className="w-full h-64 bg-gray-800 rounded-lg overflow-hidden mb-8">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={500}
+                height={256}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -166,9 +168,11 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                 <div className="max-w-4xl mx-auto space-y-12 flex flex-col items-center w-full">
                   {/* Project Image */}
                   <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={500}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>

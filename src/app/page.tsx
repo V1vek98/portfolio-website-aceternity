@@ -5,7 +5,7 @@ import { Experience } from "@/components/sections/experience";
 import { ProjectsSection } from "@/components/sections/projects";
 import { Contact } from "@/components/sections/contact";
 import { FloatingDockNavigation } from "@/components/ui/floating-dock-navigation";
-import { motion } from "framer-motion";
+
 
 export default function Home() {
   return (
