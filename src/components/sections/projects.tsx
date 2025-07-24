@@ -4,14 +4,11 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ExternalLink, 
-  Github, 
-  ChevronDown, 
-  ChevronUp,
+  Github,
   Clock,
   Target,
   Lightbulb,
   TrendingUp,
-  Code,
   X
 } from "lucide-react";
 import { projects, Project } from "@/data/portfolio";

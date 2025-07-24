@@ -143,7 +143,7 @@ export const experience: Experience[] = [
     ],
     technologies: ['QuickBooks', 'Computer Hardware', 'Software Troubleshooting', 'Customer Support'],
     highlights: [
-      { metric: '500+', description: 'Technical Tickets Resolved' },
+      { metric: '1000+', description: 'Technical Tickets Resolved' },
       { metric: '95%', description: 'Customer Satisfaction' },
       { metric: '2+ years', description: 'QuickBooks Experience' }
     ]

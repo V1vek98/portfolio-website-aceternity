@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, MapPin, BarChart3, Database } from "lucide-react";
+import { MapPin, BarChart3, Database } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Typewriter, AnimatedCounter } from "@/components/ui/typewriter";
 import { SparklesCore } from "@/components/ui/sparkles";
-import { personalInfo, socialLinks } from "@/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 
 
 const specializations = [
@@ -23,9 +23,6 @@ const stats = [
   { label: "Data Models Built", value: 25, suffix: "+" },
   { label: "Dashboards Built", value: 100, suffix: "+" }
 ];
-
-// Keywords to make colorful in the bio
-const colorfulKeywords = ["Python", "SQL", "PowerBI", "Tableau", "AI", "NLP"];
 
 export function Hero() {
   return (
@@ -63,7 +60,7 @@ export function Hero() {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
                 >
-                  <span className="text-white">Hi, I'm </span>
+                  <span className="text-white">Hi, I&apos;m </span>
                   <span className="gradient-text">{personalInfo.name}</span>
                 </motion.h1>
                 

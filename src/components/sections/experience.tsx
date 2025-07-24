@@ -6,11 +6,8 @@ import {
   Calendar, 
   MapPin, 
   Building2, 
-  ChevronDown, 
-  ChevronUp,
+  ChevronDown,
   Award,
-  Target,
-  TrendingUp,
   Code
 } from "lucide-react";
 import { experience } from "@/data/portfolio";
@@ -99,10 +96,9 @@ function MetricHighlight({ metric, description, index, delay }: MetricHighlightP
 interface ExperienceCardProps {
   exp: typeof experience[0];
   index: number;
-  isLast: boolean;
 }
 
-function ExperienceCard({ exp, index, isLast }: ExperienceCardProps) {
+function ExperienceCard({ exp, index }: ExperienceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -328,7 +324,6 @@ export function Experience() {
                 key={exp.id}
                 exp={exp}
                 index={index}
-                isLast={index === experience.length - 1}
               />
             ))}
           </div>
