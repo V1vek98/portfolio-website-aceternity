@@ -65,7 +65,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
 
           {/* Header */}
-          <div className="relative z-10 flex flex-col space-y-6 items-center text-center">
+          <div className="relative z-10 flex flex-col space-y-8 items-center text-center">
             {/* Project Image */}
             <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden">
               <img
@@ -76,7 +76,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Title and Impact */}
-            <div className="w-full space-y-4">
+            <div className="w-full space-y-6">
               <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
                 {project.title}
               </h3>
