@@ -146,47 +146,45 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="bg-gray-900/95 backdrop-blur-md border border-gray-700/50 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+              className="bg-gray-900/95 backdrop-blur-md border border-gray-700/50 rounded-2xl max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-8 border-b border-gray-700/50">
-                <div className="flex items-center gap-6">
-                  <h2 className="text-3xl font-bold text-white">{project.title}</h2>
-                  <div className="flex gap-3">
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      Demo
-                    </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
-                  </div>
+              <div className="flex flex-col items-center justify-center gap-4 p-8 border-b border-gray-700/50 w-full">
+                <h2 className="text-3xl font-bold text-white text-center">{project.title}</h2>
+                <div className="flex gap-3 justify-center">
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
+                  >
+                    <ExternalLink size={16} />
+                    Demo
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
+                  >
+                    <Github size={16} />
+                    Code
+                  </a>
                 </div>
                 <button
                   onClick={() => setIsExpanded(false)}
-                  className="p-3 hover:bg-gray-800 rounded-lg transition-colors"
+                  className="p-3 hover:bg-gray-800 rounded-lg transition-colors mx-auto"
                 >
                   <X size={24} className="text-gray-400" />
                 </button>
               </div>
 
               {/* Content */}
-              <div className="overflow-y-auto max-h-[calc(90vh-100px)] p-8">
-                <div className="max-w-4xl mx-auto space-y-12">
+              <div className="overflow-y-auto max-h-[calc(90vh-100px)] p-8 w-full">
+                <div className="max-w-4xl mx-auto space-y-12 flex flex-col items-center w-full">
                   {/* Project Image */}
-                  <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
+                  <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -195,7 +193,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
 
                   {/* Project Impact */}
-                  <div className="text-center">
+                  <div className="text-center w-full">
                     <div className="text-emerald-400 font-semibold text-2xl mb-6">
                       {project.impact}
                     </div>
@@ -205,34 +203,34 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
 
                   {/* Metrics & Timeline */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700/30">
-                      <div className="flex items-center gap-3 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full justify-center text-center">
+                    <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700/30 flex flex-col items-center">
+                      <div className="flex items-center gap-3 mb-6 justify-center">
                         <TrendingUp className="text-green-400" size={24} />
                         <h3 className="text-xl font-semibold text-white">Key Metrics</h3>
                       </div>
                       <div className="space-y-3">
                         {project.metrics.map((metric, metricIndex) => (
-                          <div key={metricIndex} className="text-gray-300">
+                          <div key={metricIndex} className="text-gray-300 text-center">
                             • {metric}
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700/30">
-                      <div className="flex items-center gap-3 mb-6">
+                    <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700/30 flex flex-col items-center">
+                      <div className="flex items-center gap-3 mb-6 justify-center">
                         <Clock className="text-blue-400" size={24} />
                         <h3 className="text-xl font-semibold text-white">Timeline</h3>
                       </div>
-                      <div className="text-gray-300 text-lg">{project.timeline}</div>
+                      <div className="text-gray-300 text-lg text-center">{project.timeline}</div>
                     </div>
                   </div>
 
                   {/* Technologies */}
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-6">Technologies Used</h3>
-                    <div className="flex flex-wrap gap-3">
+                  <div className="w-full">
+                    <h3 className="text-2xl font-semibold text-white mb-6 text-center">Technologies Used</h3>
+                    <div className="flex flex-wrap gap-3 justify-center">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
@@ -245,8 +243,8 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
 
                   {/* Project Details */}
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-6">Project Details</h3>
+                  <div className="w-full">
+                    <h3 className="text-2xl font-semibold text-white mb-6 text-center">Project Details</h3>
                     <div className="flex flex-col gap-5 items-center w-full">
                       {project.details.map((detail, detailIndex) => (
                         <div
@@ -281,45 +279,45 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
 
                   {/* Challenges */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
+                  <div className="w-full">
+                    <div className="flex items-center gap-3 mb-6 justify-center">
                       <Target className="text-red-400" size={24} />
                       <h3 className="text-2xl font-semibold text-white">Challenges</h3>
                     </div>
                     <div className="space-y-4">
                       {project.challenges.map((challenge, challengeIndex) => (
-                        <div key={challengeIndex} className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
-                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph">{challenge}</p>
+                        <div key={challengeIndex} className="bg-red-500/10 border border-red-500/20 rounded-lg p-6 text-center">
+                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph text-center">{challenge}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Solutions */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
+                  <div className="w-full">
+                    <div className="flex items-center gap-3 mb-6 justify-center">
                       <Lightbulb className="text-yellow-400" size={24} />
                       <h3 className="text-2xl font-semibold text-white">Solutions</h3>
                     </div>
                     <div className="space-y-4">
                       {project.solutions.map((solution, solutionIndex) => (
-                        <div key={solutionIndex} className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-6">
-                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph">{solution}</p>
+                        <div key={solutionIndex} className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-6 text-center">
+                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph text-center">{solution}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Outcomes */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
+                  <div className="w-full">
+                    <div className="flex items-center gap-3 mb-6 justify-center">
                       <TrendingUp className="text-green-400" size={24} />
                       <h3 className="text-2xl font-semibold text-white">Outcomes</h3>
                     </div>
                     <div className="space-y-4">
                       {project.outcomes.map((outcome, outcomeIndex) => (
-                        <div key={outcomeIndex} className="bg-green-500/10 border border-green-500/20 rounded-lg p-6">
-                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph">{outcome}</p>
+                        <div key={outcomeIndex} className="bg-green-500/10 border border-green-500/20 rounded-lg p-6 text-center">
+                          <p className="text-gray-300 leading-relaxed text-lg compact-paragraph text-center">{outcome}</p>
                         </div>
                       ))}
                     </div>
