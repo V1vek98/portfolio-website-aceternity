@@ -106,34 +106,27 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center justify-between pt-2">
-              <div className="flex gap-2">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
-                >
-                  <ExternalLink size={14} />
-                  Demo
-                </a>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
-                >
-                  <Github size={14} />
-                  Code
-                </a>
-              </div>
-
-              <div className="flex items-center gap-1 px-3 py-1.5 bg-purple-600 text-white text-sm rounded-lg">
-                Click to expand
-                <ChevronDown size={14} />
-              </div>
+            <div className="flex gap-2 pt-2">
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
+              >
+                <ExternalLink size={14} />
+                Demo
+              </a>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-2 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
+              >
+                <Github size={14} />
+                Code
+              </a>
             </div>
           </div>
         </div>
