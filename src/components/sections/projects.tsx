@@ -25,7 +25,7 @@ function TechnologyBadge({ tech, index, delay }: { tech: string; index: number; 
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3, delay }}
       key={index}
-      className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
+      className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
     >
       {tech}
     </motion.span>
@@ -85,7 +85,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Technologies Preview */}
-            <div className="flex flex-wrap gap-4 justify-center mb-6">
+            <div className="flex flex-wrap gap-1 justify-center mb-6">
               {project.technologies.slice(0, 3).map((tech, techIndex) => (
                 <TechnologyBadge 
                   key={techIndex}
@@ -95,14 +95,17 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                 />
               ))}
               {project.technologies.length > 3 && (
-                <span className="px-4 py-2 bg-gray-500/20 text-gray-400 rounded-full text-sm border border-gray-500/30">
+                <span className="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-sm border border-gray-500/30">
                   +{project.technologies.length - 3} more
                 </span>
               )}
             </div>
 
+            {/* Spacer for extra spacing */}
+            <div className="h-4"></div>
+
             {/* Action Buttons */}
-            <div className="flex gap-6 justify-center mt-2">
+            <div className="flex gap-6 justify-center mt-8">
               <a
                 href={project.demo}
                 target="_blank"
