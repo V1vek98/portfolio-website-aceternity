@@ -107,16 +107,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             {/* Action Buttons */}
             <div className="flex gap-6 justify-center mt-8">
               <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
-              >
-                <ExternalLink size={16} />
-                Demo
-              </a>
-              <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -153,15 +143,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               <div className="flex flex-col items-center justify-center gap-4 p-8 border-b border-gray-700/50 w-full">
                 <h2 className="text-3xl font-bold text-white text-center">{project.title}</h2>
                 <div className="flex gap-3 justify-center">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    Demo
-                  </a>
                   <a
                     href={project.github}
                     target="_blank"
