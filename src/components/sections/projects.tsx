@@ -65,7 +65,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
 
           {/* Header */}
-          <div className="relative z-10 flex flex-col space-y-4 items-center text-center">
+          <div className="relative z-10 flex flex-col space-y-6 items-center text-center">
             {/* Project Image */}
             <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden">
               <img
@@ -76,11 +76,11 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Title and Impact */}
-            <div className="w-full">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+            <div className="w-full space-y-4">
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
                 {project.title}
               </h3>
-              <div className="text-emerald-400 font-semibold text-sm mb-3">
+              <div className="text-emerald-400 font-semibold text-sm">
                 {project.impact}
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
@@ -106,7 +106,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-2 pt-2 justify-center">
+            <div className="flex gap-2 justify-center">
               <a
                 href={project.demo}
                 target="_blank"
