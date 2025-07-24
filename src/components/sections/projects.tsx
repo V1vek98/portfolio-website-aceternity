@@ -65,7 +65,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
 
           {/* Header */}
-          <div className="relative z-10 flex flex-col space-y-4">
+          <div className="relative z-10 flex flex-col space-y-4 items-center text-center">
             {/* Project Image */}
             <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden">
               <img
@@ -76,7 +76,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Title and Impact */}
-            <div>
+            <div className="w-full">
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
                 {project.title}
               </h3>
@@ -89,7 +89,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Technologies Preview */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center">
               {project.technologies.slice(0, 3).map((tech, techIndex) => (
                 <TechnologyBadge 
                   key={techIndex}
@@ -106,7 +106,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-2 pt-2">
+            <div className="flex gap-2 pt-2 justify-center">
               <a
                 href={project.demo}
                 target="_blank"
