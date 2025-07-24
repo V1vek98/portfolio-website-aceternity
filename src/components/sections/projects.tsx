@@ -210,7 +210,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
                   {/* Technologies */}
                   <div className="w-full">
-                    <h3 className="text-2xl font-semibold text-white mb-6 text-center">Technologies Used</h3>
+                    <h3 className="text-2xl font-semibold text-white !py-8 !mb-0 text-center">Technologies Used</h3>
                     <div className="flex flex-wrap gap-3 justify-center">
                       {project.technologies.map((tech, techIndex) => (
                         <span
@@ -225,32 +225,13 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
                   {/* Project Details */}
                   <div className="w-full">
-                    <h3 className="text-2xl font-semibold text-white mb-6 text-center">Project Details</h3>
+                    <h3 className="text-2xl font-semibold text-white !py-8 !mb-0 text-center">Project Details</h3>
                     <div className="flex flex-col gap-3 items-center w-full">
                       {project.details.map((detail, detailIndex) => (
                         <div
                           key={detailIndex}
                           className="bg-blue-500/10 border border-blue-500/20 rounded-lg py-3 px-4 flex items-center justify-center text-center min-h-fit mb-4 w-full"
                         >
-                          <motion.div
-                            style={{
-                              width: '8px',
-                              height: '8px',
-                              borderRadius: '50%',
-                              backgroundColor: '#3b82f6',
-                              flexShrink: 0
-                            }}
-                            animate={{
-                              scale: [1, 1.2, 1],
-                              opacity: [0.7, 1, 0.7]
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                            className="mr-4"
-                          />
                           <p className="text-gray-300 leading-relaxed text-lg text-center m-0 p-0 w-full">
                             {detail}
                           </p>
@@ -263,7 +244,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   <div className="w-full mb-8">
                     <div className="flex items-center gap-3 mb-6 justify-center">
                       <Target className="text-red-400" size={24} />
-                      <h3 className="text-2xl font-semibold text-white">Challenges</h3>
+                      <h3 className="text-2xl font-semibold text-white !py-8 !mb-0">Challenges</h3>
                     </div>
                     <div className="!space-y-4">
                       {project.challenges.map((challenge, challengeIndex) => (
@@ -278,7 +259,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   <div className="w-full mb-8">
                     <div className="flex items-center gap-3 mb-6 justify-center">
                       <Lightbulb className="text-yellow-400" size={24} />
-                      <h3 className="text-2xl font-semibold text-white">Solutions</h3>
+                      <h3 className="text-2xl font-semibold text-white !py-8 !mb-0">Solutions</h3>
                     </div>
                     <div className="!space-y-4">
                       {project.solutions.map((solution, solutionIndex) => (
@@ -293,7 +274,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   <div className="w-full mb-8">
                     <div className="flex items-center gap-3 mb-6 justify-center">
                       <TrendingUp className="text-green-400" size={24} />
-                      <h3 className="text-2xl font-semibold text-white">Outcomes</h3>
+                      <h3 className="text-2xl font-semibold text-white !py-8 !mb-0">Outcomes</h3>
                     </div>
                     <div className="!space-y-4">
                       {project.outcomes.map((outcome, outcomeIndex) => (
