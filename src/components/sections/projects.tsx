@@ -59,13 +59,13 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           onClick={() => setIsExpanded(true)}
           className="relative bg-gray-900/40 backdrop-blur-md border border-gray-700/50 
                       rounded-xl hover:border-purple-500/30 transition-all duration-500
-                      hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden p-6 cursor-pointer"
+                                             hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden p-8 cursor-pointer"
         >
           
 
 
           {/* Header */}
-          <div className="relative z-10 flex flex-col space-y-8 items-center text-center">
+          <div className="relative z-10 flex flex-col space-y-10 items-center text-center">
             {/* Project Image */}
             <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden">
               <img
@@ -76,7 +76,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             {/* Title and Impact */}
-            <div className="w-full space-y-6">
+            <div className="w-full space-y-8">
               <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
                 {project.title}
               </h3>
@@ -323,7 +323,7 @@ export function ProjectsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-purple-900/5 to-gray-900/20" />
       
       <div className="max-w-7xl mx-auto container-spacing w-full">
-        <div className="flex-center-col text-center space-y-responsive">
+        <div className="flex-center-col text-center space-y-16">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
