@@ -24,7 +24,8 @@ import {
 import { personalInfo } from "@/data/portfolio";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { Meteors } from "@/components/ui/meteors";
-import { ContactTypewriter } from "@/components/ui/contact-typewriter";
+import { Typewriter } from "@/components/ui/typewriter";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 // Floating particles component for ambient effects
 const FloatingParticles = () => {
@@ -158,7 +159,7 @@ const useCopyToClipboard = () => {
   return { copy, copied };
 };
 
-// Simplified contact card without complex hover animations
+// Contact card with background beams collision effect on hover
 const ContactCard = ({ 
   icon: Icon, 
   title, 
@@ -174,12 +175,21 @@ const ContactCard = ({
   delay?: number;
   copyable?: boolean;
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const { copy, copied } = useCopyToClipboard();
 
   const handleCopy = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     copy(info, title);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   const CardContent = (
@@ -194,59 +204,66 @@ const ContactCard = ({
         bounce: 0.4 
       }}
       viewport={{ once: true }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="relative z-10 flex items-center justify-between">
-        <div className="flex items-center space-x-6">
-          {/* Simple icon container */}
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover:from-purple-500/30 group-hover:to-blue-600/30">
-            <Icon size={24} className="text-white" />
+      <BackgroundBeamsWithCollision 
+        isActive={isHovered}
+        className="absolute inset-0 z-0"
+      >
+        <div className="relative z-10 flex items-center justify-between w-full h-full">
+          <div className="flex items-center space-x-6">
+            {/* Simple icon container */}
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover:from-purple-500/30 group-hover:to-blue-600/30">
+              <Icon size={24} className="text-white" />
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-100 transition-colors duration-300">
+                {title}
+              </h3>
+              <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                {info}
+              </p>
+            </div>
           </div>
           
-          <div>
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-100 transition-colors duration-300">
-              {title}
-            </h3>
-            <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
-              {info}
-            </p>
-          </div>
+          {copyable && (
+            <motion.button
+              onClick={handleCopy}
+              className="relative p-3 rounded-xl bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/10"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={copied === title ? { 
+                scale: [1, 1.1, 1] 
+              } : {}}
+              transition={{ duration: 0.3 }}
+            >
+              <AnimatePresence mode="wait">
+                {copied === title ? (
+                  <motion.div
+                    key="check"
+                    initial={{ opacity: 0, rotate: -90 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 90 }}
+                  >
+                    <Check size={18} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="copy"
+                    initial={{ opacity: 0, rotate: -90 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 90 }}
+                  >
+                    <Copy size={18} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          )}
         </div>
-        
-        {copyable && (
-          <motion.button
-            onClick={handleCopy}
-            className="relative p-3 rounded-xl bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/10"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            animate={copied === title ? { 
-              scale: [1, 1.1, 1] 
-            } : {}}
-            transition={{ duration: 0.3 }}
-          >
-            <AnimatePresence mode="wait">
-              {copied === title ? (
-                <motion.div
-                  key="check"
-                  initial={{ opacity: 0, rotate: -90 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: 90 }}
-                >
-                  <Check size={18} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="copy"
-                  initial={{ opacity: 0, rotate: -90 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: 90 }}
-                >
-                  <Copy size={18} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        )}
-      </div>
+      </BackgroundBeamsWithCollision>
     </motion.div>
   );
 
@@ -610,13 +627,15 @@ export function Contact() {
               
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8">
                 <span className="gradient-text">Let's </span>
-                <ContactTypewriter 
-                  words={["Connect", "Collaborate", "Create Magic", "Build Together", "Make Impact"]}
-                  className="text-4xl md:text-6xl lg:text-7xl font-bold"
-                  typingSpeed={100}
-                  deletingSpeed={60}
-                  delayBetweenWords={2000}
-                />
+                <div className="inline-block h-16 md:h-20 lg:h-24 flex items-center">
+                  <Typewriter 
+                    words={["Connect", "Collaborate", "Create Magic", "Build Together", "Make Impact"]}
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-white"
+                    typingSpeed={100}
+                    deletingSpeed={60}
+                    delayBetweenWords={2000}
+                  />
+                </div>
               </h2>
               
               <motion.p
