@@ -53,11 +53,18 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         }}
         className="w-full group relative"
       >
-        <div 
+        <button 
           onClick={() => setIsExpanded(true)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setIsExpanded(true);
+            }
+          }}
           className="relative bg-gray-900/40 backdrop-blur-md border border-gray-700/50 
-                      rounded-xl hover:border-purple-500/30 transition-all duration-500
-                      hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden p-12 cursor-pointer"
+                      rounded-xl hover:border-purple-500/30 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/30 transition-all duration-500
+                      hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden p-12 cursor-pointer w-full text-left"
+          aria-label={`View details for ${project.title} project`}
         >
           
 
@@ -98,7 +105,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                 />
               ))}
               {project.technologies.length > 3 && (
-                <span className="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-sm border border-gray-500/30">
+                <span className="px-3 py-1 bg-gray-500/20 text-gray-300 rounded-full text-sm border border-gray-500/30">
                   +{project.technologies.length - 3} more
                 </span>
               )}
@@ -123,7 +130,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </LinkPreview>
             </div>
           </div>
-        </div>
+        </button>
       </motion.div>
 
       {/* Expanded Content Overlay */}
@@ -164,7 +171,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   onClick={() => setIsExpanded(false)}
                   className="p-3 hover:bg-gray-800 rounded-lg transition-colors mx-auto"
                 >
-                  <X size={24} className="text-gray-400" />
+                  <X size={24} className="text-gray-300" />
                 </button>
               </div>
 
@@ -210,7 +217,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
                     <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700/30 flex flex-col items-center">
                       <div className="flex items-center gap-3 mb-6 justify-center">
-                        <Clock className="text-blue-400" size={24} />
+                        <Clock className="text-blue-300" size={24} />
                         <h3 className="text-xl font-semibold text-white">Timeline</h3>
                       </div>
                       <div className="text-gray-300 text-lg text-center">{project.timeline}</div>
@@ -328,7 +335,7 @@ export function ProjectsSection() {
                 Projects
               </span>
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
               Explore my latest work showcasing full-stack development, AI integration, and data analytics solutions
             </p>
           </motion.div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { personalInfo } from "@/data/portfolio";
+import { ToastProvider } from "@/components/ui/toast";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,7 +79,9 @@ export default function RootLayout({
           "--font-geist-mono": "var(--font-jetbrains-mono)",
         } as React.CSSProperties}
       >
-        {children}
+        <ToastProvider>
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );

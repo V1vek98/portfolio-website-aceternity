@@ -6,6 +6,7 @@ import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Typewriter, AnimatedCounter } from "@/components/ui/typewriter";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { personalInfo } from "@/data/portfolio";
+import { useReducedMotion, gpuAcceleration } from "@/lib/motion-utils";
 
 
 const specializations = [
@@ -25,6 +26,8 @@ const stats = [
 ];
 
 export function Hero() {
+  const prefersReducedMotion = useReducedMotion();
+  
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
@@ -72,7 +75,7 @@ export function Hero() {
                 >
                   <Typewriter 
                     words={specializations}
-                    className="text-blue-400"
+                    className="text-blue-300"
                     typingSpeed={80}
                     deletingSpeed={40}
                     delayBetweenWords={3000}
@@ -85,7 +88,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
-                className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed text-center"
+                className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed text-center"
               >
                 {personalInfo.bio}
               </motion.p>
@@ -127,14 +130,14 @@ export function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.0 + index * 0.1 }}
                 >
-                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400">
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-300">
                     <AnimatedCounter
                       value={stat.value}
                       suffix={stat.suffix}
                       duration={2000}
                     />
                   </div>
-                  <div className="text-gray-400 text-sm md:text-base leading-tight">
+                  <div className="text-gray-300 text-sm md:text-base leading-tight">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -142,28 +145,46 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating Data Icons - Positioned to avoid content overlap */}
+            {/* Floating Data Icons - Positioned to avoid content overlap with GPU optimization */}
             <div className="hidden lg:block">
               <motion.div
-                className="absolute top-24 left-4 xl:left-16 text-blue-500/20"
-                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-24 left-4 xl:left-16 text-blue-500/20 gpu-accelerated"
+                animate={prefersReducedMotion ? {} : { y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ 
+                  duration: prefersReducedMotion ? 0.01 : 4, 
+                  repeat: prefersReducedMotion ? 0 : Infinity, 
+                  ease: "easeInOut",
+                  repeatType: "reverse"
+                }}
+                style={gpuAcceleration}
               >
                 <Database size={28} />
               </motion.div>
               
               <motion.div
-                className="absolute top-48 right-4 xl:right-20 text-purple-500/20"
-                animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-48 right-4 xl:right-20 text-purple-500/20 gpu-accelerated"
+                animate={prefersReducedMotion ? {} : { y: [0, 15, 0], rotate: [0, -5, 0] }}
+                transition={{ 
+                  duration: prefersReducedMotion ? 0.01 : 5, 
+                  repeat: prefersReducedMotion ? 0 : Infinity, 
+                  ease: "easeInOut",
+                  repeatType: "reverse"
+                }}
+                style={gpuAcceleration}
               >
                 <BarChart3 size={24} />
               </motion.div>
               
               <motion.div
-                className="absolute bottom-48 left-8 xl:left-24 text-blue-400/20"
-                animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-48 left-8 xl:left-24 text-blue-300/20 gpu-accelerated"
+                animate={prefersReducedMotion ? {} : { y: [0, -20, 0], rotate: [0, 10, 0] }}
+                transition={{ 
+                  duration: prefersReducedMotion ? 0.01 : 6, 
+                  repeat: prefersReducedMotion ? 0 : Infinity, 
+                  ease: "easeInOut",
+                  repeatType: "reverse"
+                }}
+                style={gpuAcceleration}
               >
                 <BarChart3 size={20} />
               </motion.div>

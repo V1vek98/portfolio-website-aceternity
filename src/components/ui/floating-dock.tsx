@@ -75,7 +75,8 @@ const FloatingDockMobile = ({
                     }
                     setOpen(false);
                   }}
-                  className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center"
+                  className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:bg-gray-700/80 transition-colors"
+                  aria-label={`Navigate to ${item.title}`}
                 >
                   <div className="flex items-center justify-center">{item.icon}</div>
                 </a>
@@ -86,9 +87,11 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <motion.button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center"
+        className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:bg-gray-700/80 transition-colors"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={open}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -219,6 +222,8 @@ function IconContainer({
           window.open(href, '_blank');
         }
       }}
+      className="focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-full"
+      aria-label={`Navigate to ${title}`}
     >
       <motion.div
         ref={ref}

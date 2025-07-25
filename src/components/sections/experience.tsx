@@ -23,26 +23,11 @@ interface TechnologyBadgeProps {
 function TechnologyBadge({ tech, index, delay }: TechnologyBadgeProps) {
   return (
     <motion.span
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ 
-        duration: 0.4, 
-        delay: delay + index * 0.1,
-        ease: "easeOut"
-      }}
-      whileHover={{ 
-        scale: 1.05,
-        y: -2,
-        transition: { duration: 0.2 }
-      }}
-      style={{ 
-        fontSize: '14px', 
-        padding: '8px 16px',
-        display: 'inline-block'
-      }}
-      className="font-medium bg-blue-500/10 text-blue-400 
-                 border border-blue-500/20 rounded-full backdrop-blur-sm
-                 hover:bg-blue-500/20 hover:border-blue-400/40 transition-all duration-300"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3, delay }}
+      key={index}
+      className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
     >
       {tech}
     </motion.span>
@@ -76,7 +61,7 @@ function MetricHighlight({ metric, description, index, delay }: MetricHighlightP
       style={{ width: '220px', height: '90px' }}
     >
       <div className="text-center">
-        <div className="text-3xl font-bold text-blue-400 mb-2">
+        <div className="text-3xl font-bold text-blue-300 mb-2">
           {numericValue > 0 ? (
             <AnimatedCounter
               value={numericValue}
@@ -135,9 +120,9 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
                 {exp.title}
               </motion.h3>
               
-              <div className="flex flex-col items-center md:items-start md:flex-row md:items-center gap-2 md:gap-4 text-gray-400">
+              <div className="flex flex-col items-center md:items-start md:flex-row md:items-center gap-2 md:gap-4 text-gray-300">
                 <div className="flex items-center gap-2">
-                  <Building2 size={16} className="text-blue-400" />
+                  <Building2 size={16} className="text-blue-300" />
                   <span className="font-medium">{exp.company}</span>
                 </div>
                 
@@ -149,7 +134,7 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
             </div>
             
             <div className="flex flex-col items-center md:items-end gap-2">
-              <div className="flex items-center gap-2 text-blue-400">
+              <div className="flex items-center gap-2 text-blue-300">
                 <Calendar size={16} />
                 <span className="font-medium">{exp.period}</span>
               </div>
@@ -202,7 +187,7 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
           >
             <div style={{ marginBottom: '10px' }} className="flex items-center justify-center md:justify-start gap-2">
               <Code size={16} className="text-amber-400" />
-              <span className="text-sm font-medium text-gray-400">Technologies</span>
+              <span className="text-sm font-medium text-gray-300">Technologies</span>
             </div>
             
             <div className="flex flex-wrap gap-2 justify-center md:justify-start">
@@ -211,7 +196,7 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
                   key={tech}
                   tech={tech}
                   index={techIndex}
-                  delay={0.8 + index * 0.2}
+                  delay={0.1 + techIndex * 0.05}
                 />
               ))}
             </div>
@@ -220,23 +205,26 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
           {/* Expandable Achievements - moved to center */}
           <div className="flex justify-center w-full" style={{ marginTop: '32px' }}>
             <motion.div
-              className="flex flex-col items-center w-full"
+              className="flex flex-col items-center w-full space-y-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 + index * 0.2 }}
             >
+              {/* Show achievements button */}
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-2 text-blue-400 hover:text-blue-300 
-                           transition-colors duration-200 mb-4 group/expand justify-center"
+                className="flex items-center gap-2 text-blue-300 hover:text-blue-200 
+                           transition-colors duration-200 text-sm group/expand justify-center"
               >
                 <Award size={16} />
-                <span className="font-medium">Key Achievements</span>
+                <span className="font-medium">
+                  {isExpanded ? 'Hide Key Achievements' : `Show ${exp.achievements.length} Key Achievements`}
+                </span>
                 <motion.div
                   animate={{ rotate: isExpanded ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDown size={16} />
+                  <ChevronDown size={14} />
                 </motion.div>
               </button>
 
@@ -255,9 +243,9 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
                           key={achIndex}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: achIndex * 0.1 }}
+                          transition={{ delay: achIndex * 0.05 }}
                           style={{ padding: '12px', width: '100%', maxWidth: '600px' }}
-                          className="flex items-center gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30 justify-center"
+                          className="flex items-start gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30"
                         >
                           <motion.div
                             style={{
@@ -311,7 +299,7 @@ export function Experience() {
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Professional{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-300 to-purple-500 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>

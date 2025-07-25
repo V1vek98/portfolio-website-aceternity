@@ -16,18 +16,30 @@ import { personalInfo } from "@/data/portfolio";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { Meteors } from "@/components/ui/meteors";
 import { LinkPreview } from "@/components/ui/link-preview";
+import { useToast } from "@/components/ui/toast";
 
 // Copy to clipboard hook
 const useCopyToClipboard = () => {
   const [copied, setCopied] = useState<string | null>(null);
+  const { addToast } = useToast();
 
   const copy = async (text: string, id: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(id);
+      addToast({
+        message: `${id} copied to clipboard!`,
+        type: 'success',
+        duration: 2000
+      });
       setTimeout(() => setCopied(null), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
+      addToast({
+        message: 'Failed to copy to clipboard',
+        type: 'error',
+        duration: 3000
+      });
     }
   };
 
@@ -42,7 +54,7 @@ const ContactCard = ({
   href,
   delay = 0,
   copyable = false,
-  iconColor = "text-blue-400",
+  iconColor = "text-blue-300",
   bgColor = "from-blue-500/20 to-blue-600/20"
 }: { 
   icon: React.ComponentType<{ size?: number; className?: string }>; 
@@ -64,7 +76,7 @@ const ContactCard = ({
 
   const CardContent = (
     <motion.div
-      className="relative p-6 rounded-2xl overflow-hidden backdrop-blur-xl bg-slate-800/50 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 hover:shadow-lg group w-full max-w-sm mx-auto"
+      className="relative p-6 rounded-2xl overflow-hidden backdrop-blur-xl bg-slate-800/50 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 hover:shadow-lg group w-full mx-auto sm:max-w-sm"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ 
@@ -76,16 +88,17 @@ const ContactCard = ({
       viewport={{ once: true }}
     >
       <div className="relative z-10">
-        {/* Copy button for copyable items - positioned in top right */}
+        {/* Copy button for copyable items - positioned in top right with larger touch target */}
         {copyable && (
           <button
             onClick={handleCopy}
-            className="absolute top-1 right-1 p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300"
+            className="absolute top-1 right-1 min-w-[44px] min-h-[44px] p-3 rounded-lg bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 flex items-center justify-center"
+            aria-label={`Copy ${title} to clipboard`}
           >
             {copied === title ? (
-              <Check size={16} />
+              <Check size={18} />
             ) : (
-              <Copy size={16} />
+              <Copy size={18} />
             )}
           </button>
         )}
@@ -105,17 +118,17 @@ const ContactCard = ({
               {info}
             </p>
             {title === "Email" && (
-              <p className="text-gray-400 text-xs">
+              <p className="text-gray-300 text-xs">
                 Send me an email anytime
               </p>
             )}
             {title === "Phone" && (
-              <p className="text-gray-400 text-xs">
+              <p className="text-gray-300 text-xs">
                 Available during normal business hours
               </p>
             )}
             {title === "Location" && (
-              <p className="text-gray-400 text-xs">
+              <p className="text-gray-300 text-xs">
                 Open to remote, on-site and relocation opportunities
               </p>
             )}
@@ -266,7 +279,7 @@ export function Contact() {
         </motion.div>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 w-full">
           <ContactCard
             icon={Mail}
             title="Email"
