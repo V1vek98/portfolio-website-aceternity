@@ -198,14 +198,23 @@ const SocialCard = ({
   );
 
   return href.startsWith('http') ? (
-    <LinkPreview 
-      url={href} 
-      className="block w-full max-w-sm mx-auto"
-      isStatic={!!staticImage}
-      imageSrc={staticImage || ""}
-    >
-      {cardContent}
-    </LinkPreview>
+    staticImage ? (
+      <LinkPreview 
+        url={href} 
+        className="block w-full max-w-sm mx-auto"
+        isStatic={true}
+        imageSrc={staticImage}
+      >
+        {cardContent}
+      </LinkPreview>
+    ) : (
+      <LinkPreview 
+        url={href} 
+        className="block w-full max-w-sm mx-auto"
+      >
+        {cardContent}
+      </LinkPreview>
+    )
   ) : (
     <div className="block w-full max-w-sm mx-auto">
       {cardContent}
