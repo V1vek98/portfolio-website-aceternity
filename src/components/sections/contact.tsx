@@ -132,11 +132,17 @@ const ContactCard = ({
   );
 
   return href ? (
-    <LinkPreview url={href} className="block">
+    href.startsWith('http') ? (
+      <LinkPreview url={href} className="block">
+        <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+          {CardContent}
+        </a>
+      </LinkPreview>
+    ) : (
       <a href={href} target="_blank" rel="noopener noreferrer" className="block">
         {CardContent}
       </a>
-    </LinkPreview>
+    )
   ) : (
     CardContent
   );
@@ -162,46 +168,54 @@ const SocialCard = ({
   hoverColor?: string;
   staticImage?: string;
 }) => {
-  return (
+  const cardContent = (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group relative p-6 rounded-2xl overflow-hidden bg-gradient-to-br ${bgColor} hover:${hoverColor} transition-all duration-300 hover:shadow-lg hover:-translate-y-1 block w-full`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.6, 
+        delay, 
+        type: "spring", 
+        bounce: 0.3 
+      }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <div className="flex items-center justify-center">
+        <div className="flex items-center space-x-4">
+          <Icon size={24} className="text-white" />
+          <div>
+            <h3 className="text-lg font-semibold text-white">
+              {title}
+            </h3>
+            <p className="text-white/80 text-sm">
+              {description}
+            </p>
+          </div>
+        </div>
+        <ExternalLink size={16} className="text-white/60 group-hover:text-white transition-colors duration-300 ml-4" />
+      </div>
+    </motion.a>
+  );
+
+  return href.startsWith('http') ? (
     <LinkPreview 
       url={href} 
       className="block w-full max-w-sm mx-auto"
       isStatic={!!staticImage}
       imageSrc={staticImage || ""}
     >
-      <motion.a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`group relative p-6 rounded-2xl overflow-hidden bg-gradient-to-br ${bgColor} hover:${hoverColor} transition-all duration-300 hover:shadow-lg hover:-translate-y-1 block w-full`}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.6, 
-          delay, 
-          type: "spring", 
-          bounce: 0.3 
-        }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <div className="flex items-center justify-center">
-          <div className="flex items-center space-x-4">
-            <Icon size={24} className="text-white" />
-            <div>
-              <h3 className="text-lg font-semibold text-white">
-                {title}
-              </h3>
-              <p className="text-white/80 text-sm">
-                {description}
-              </p>
-            </div>
-          </div>
-          <ExternalLink size={16} className="text-white/60 group-hover:text-white transition-colors duration-300 ml-4" />
-        </div>
-      </motion.a>
+      {cardContent}
     </LinkPreview>
+  ) : (
+    <div className="block w-full max-w-sm mx-auto">
+      {cardContent}
+    </div>
   );
 };
 
