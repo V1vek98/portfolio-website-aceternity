@@ -20,6 +20,7 @@ export interface Project {
   description: string;
   technologies: string[];
   image: string;
+  expandedImage: string;
   impact: string;
   metrics: string[];
   demo: string;
@@ -158,6 +159,7 @@ export const projects: Project[] = [
     description: 'Developed a comprehensive pipeline that leverages a OpenAI APIs to automatically generate high-quality articles from a given set of topics. The system then enriches the content by performing several layers of machine learning-powered analysis, including summarization, keyword extraction, sentiment analysis, and clickbait classification.',
     technologies: ['OpenAI API', 'Scikit-learn', 'Flair', 'Spacy', 'NLTK', 'Pandas', 'NumPy', 'Yake'],
     image: '/api/placeholder/400/250',
+    expandedImage: '/api/placeholder/400/250',
     impact: 'Scaled article production by over 100x',
     metrics: ['10,000+ Articles/Day', '94% Classification Accuracy', 'Auto Review System'],
     demo: '#',
@@ -191,6 +193,7 @@ export const projects: Project[] = [
     description: 'Engineered a fully autonomous data pipeline to replace manual daily reporting. The system automatically ingests hotel performance PDFs from email, uses advanced OCR and regex to intelligently extract transactional and statistical data, and transforms it into a clean, structured format. The processed data is then channeled into an interactive Power BI dashboard, providing real-time insights into key business metrics.',
     technologies: ['Python', 'PyTesseract', 'PyMuPDF', 'Pandas', 'NumPy', 'Power Automate', 'Power BI', 'Regex'],
     image: '/api/placeholder/400/250',
+    expandedImage: '/api/placeholder/400/250',
     impact: 'Reduced daily reporting time by 100%',
     metrics: ['20+ PDF Reports Daily', '<1 Min Processing Time', '99.8% Extraction Accuracy'],
     demo: '#',
@@ -224,6 +227,7 @@ export const projects: Project[] = [
     description: 'Developed a comprehensive web-based analytics platform for hotel industry data analysis, featuring automated data loading, intelligent classification systems, and interactive visualizations. The application processes complex hotel datasets and provides real-time insights into property performance, market positioning, and operational metrics.',
     technologies: ['React', 'Material-UI', 'JavaScript ES6+', 'CSV Processing', 'Google Maps API', 'Responsive Design'],
     image: '/api/placeholder/400/250',
+    expandedImage: '/api/placeholder/400/250',
     impact: 'Streamlined hotel data analysis workflow by 85%',
     metrics: ['85% Workflow Improvement', '10MB+ File Processing', '100% Mobile Responsive'],
     demo: '#',
@@ -257,6 +261,7 @@ export const projects: Project[] = [
     description: 'Built a comprehensive ComfyUI-powered image generation platform that orchestrates multiple state-of-the-art AI models including Flux, Stable Diffusion XL, and ControlNet. The system features advanced workflow automation, batch processing capabilities, and intelligent model switching to optimize output quality and generation speed.',
     technologies: ['ComfyUI', 'Flux.1', 'Stable Diffusion XL', 'ControlNet', 'Python', 'PyTorch', 'CUDA', 'Custom Nodes'],
     image: '/api/placeholder/400/250',
+    expandedImage: '/api/placeholder/400/250',
     impact: 'Created 25+ custom workflows for different use cases and artistic styles',
     metrics: ['1000+ Images Generated', '10+ AI Models Integrated', '25+ Custom Workflows'],
     demo: '#',
@@ -290,6 +295,7 @@ export const projects: Project[] = [
     description: 'Set up and optimized DeepSeek LLM for local inference, exploring the capabilities of running large language models on consumer hardware. Built a simple API wrapper and experimented with various optimization techniques to maximize performance within GPU memory constraints.',
     technologies: ['DeepSeek-R1', 'Python', 'Ollama', 'FastAPI', 'CUDA', 'Transformers'],
     image: '/api/placeholder/400/250',
+    expandedImage: '/api/placeholder/400/250',
     impact: 'Successfully ran 70B parameter model locally with good performance',
     metrics: ['70B Parameters', '20-30s Response Time', 'Local Privacy'],
     demo: '#',
@@ -322,7 +328,8 @@ export const projects: Project[] = [
     title: 'Modern Portfolio Website - Next.js 15 & Framer Motion',
     description: 'Built a fully responsive, modern portfolio website using Next.js 15 with advanced animations and interactive components. Features a dark theme design with gradient backgrounds, scroll-triggered animations, floating dock navigation, and a glassmorphism contact form. The site showcases data analyst work experience and projects with smooth user interactions.',
     technologies: ['Next.js 15', 'TypeScript', 'Tailwind CSS 4', 'Framer Motion 12', 'React Hook Form', 'Zod', 'Lucide React', 'Tabler Icons'],
-    image: '/api/placeholder/400/250',
+    image: '/project-images/portfolio-website.jpg',
+    expandedImage: '/project-images/portfolio-website-expanded.jpg',
     impact: 'Created a professional portfolio showcasing technical expertise and project experience',
     metrics: ['100% TypeScript Coverage', 'Mobile-First Responsive Design', 'Advanced Animations'],
     demo: '#',

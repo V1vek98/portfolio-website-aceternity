@@ -174,7 +174,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                   {/* Project Image */}
                   <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center">
                     <Image
-                      src={project.image}
+                      src={project.expandedImage}
                       alt={project.title}
                       width={500}
                       height={320}
