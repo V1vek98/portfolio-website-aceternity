@@ -316,6 +316,42 @@ export const projects: Project[] = [
       'Gained hands-on experience with LLM deployment, quantization techniques, and local inference optimization',
       'Built a foundation for future local AI projects and understanding of the trade-offs in self-hosted LLM solutions'
     ]
+  },
+  {
+    id: "6",
+    title: 'Modern Portfolio Website - Next.js 15 & Framer Motion',
+    description: 'Built a fully responsive, modern portfolio website using Next.js 15 with advanced animations and interactive components. Features a dark theme design with gradient backgrounds, scroll-triggered animations, floating dock navigation, and a glassmorphism contact form. The site showcases data analyst work experience and projects with smooth user interactions.',
+    technologies: ['Next.js 15', 'TypeScript', 'Tailwind CSS 4', 'Framer Motion 12', 'React Hook Form', 'Zod', 'Lucide React', 'Tabler Icons'],
+    image: '/api/placeholder/400/250',
+    impact: 'Created a professional portfolio showcasing technical expertise and project experience',
+    metrics: ['100% TypeScript Coverage', 'Mobile-First Responsive Design', 'Advanced Animations'],
+    demo: '#',
+    github: 'https://github.com/v1vek98/portfolio-website-aceternity',
+    details: [
+      'Built with Next.js 15 App Router architecture featuring TypeScript for type safety and modern development practices',
+      'Implemented advanced animations using Framer Motion with scroll-triggered effects, page transitions, and micro-interactions',
+      'Created custom UI components including floating dock navigation, animated backgrounds, meteors, sparkles, and typewriter effects',
+      'Designed a glassmorphism contact form with React Hook Form and Zod validation, featuring real-time form validation and submission'
+    ],
+    timeline: '4 weeks',
+    challenges: [
+      'Implementing complex animations while maintaining smooth performance across all devices and browsers',
+      'Creating a cohesive dark theme design system with consistent spacing, colors, and typography throughout all components',
+      'Building responsive layouts that work seamlessly from mobile devices to large desktop screens',
+      'Managing component state and form validation while ensuring accessibility and user experience standards'
+    ],
+    solutions: [
+      'Utilized Framer Motion\'s whileInView animations with viewport optimization to ensure smooth scroll-triggered effects without performance degradation',
+      'Developed a comprehensive CSS custom properties system in globals.css with Tailwind CSS 4 integration for consistent theming',
+      'Implemented mobile-first responsive design using Tailwind\'s responsive utilities and flexible grid layouts with proper breakpoints',
+      'Integrated React Hook Form with Zod schema validation for robust form handling and implemented custom error states with user-friendly feedback'
+    ],
+    outcomes: [
+      'Deployed a production-ready portfolio website showcasing professional experience, projects, and technical skills effectively',
+      'Achieved excellent performance scores with optimized images, fonts, and animations that enhance rather than hinder user experience',
+      'Built a scalable architecture with centralized data management, reusable components, and maintainable code structure for future updates',
+      'Created an engaging user experience with interactive elements, smooth animations, and intuitive navigation that encourages exploration'
+    ]
   }
 ];
 
