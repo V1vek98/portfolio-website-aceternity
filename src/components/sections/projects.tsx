@@ -12,6 +12,7 @@ import {
   X
 } from "lucide-react";
 import { projects, Project } from "@/data/portfolio";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 interface ProjectCardProps {
   project: Project;
@@ -108,16 +109,18 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
             {/* Action Buttons */}
             <div className="flex gap-6 justify-center mt-8">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
-              >
-                <Github size={16} />
-                Code
-              </a>
+              <LinkPreview url={project.github}>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
+                >
+                  <Github size={16} />
+                  Code
+                </a>
+              </LinkPreview>
             </div>
           </div>
         </div>
@@ -145,15 +148,17 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               <div className="flex flex-col items-center justify-center gap-4 p-8 border-b border-gray-700/50 w-full">
                 <h2 className="text-3xl font-bold text-white text-center">{project.title}</h2>
                 <div className="flex gap-3 justify-center">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
-                  >
-                    <Github size={16} />
-                    Code
-                  </a>
+                  <LinkPreview url={project.github}>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
+                    >
+                      <Github size={16} />
+                      Code
+                    </a>
+                  </LinkPreview>
                 </div>
                 <button
                   onClick={() => setIsExpanded(false)}

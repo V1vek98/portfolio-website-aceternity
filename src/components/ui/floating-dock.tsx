@@ -203,7 +203,7 @@ function IconContainer({
 
   const [hovered, setHovered] = useState(false);
 
-  return (
+  const linkContent = (
     <a
       href={href}
       onClick={(e) => {
@@ -255,4 +255,6 @@ function IconContainer({
       </motion.div>
     </a>
   );
+
+  return linkContent;
 } 
