@@ -180,19 +180,19 @@ const SocialCard = ({
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <div className="flex items-center justify-center">
-        <div className="flex items-center space-x-4">
-          <Icon size={24} className="text-white" />
-          <div>
-            <h3 className="text-lg font-semibold text-white">
-              {title}
-            </h3>
-            <p className="text-white/80 text-sm">
-              {description}
-            </p>
-          </div>
-        </div>
-        <ExternalLink size={16} className="text-white/60 group-hover:text-white transition-colors duration-300 ml-4" />
+      {/* Background Icon */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+        <Icon size={120} className="opacity-10 text-white drop-shadow-lg" />
+      </div>
+      {/* Foreground Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-4">
+        <h3 className="text-lg font-semibold text-white">
+          {title}
+        </h3>
+        <p className="text-white/80 text-sm">
+          {description}
+        </p>
+        <ExternalLink size={16} className="text-white/60 group-hover:text-white transition-colors duration-300 mx-auto" />
       </div>
     </motion.a>
   );
