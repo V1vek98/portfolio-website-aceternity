@@ -76,6 +76,20 @@ const ContactCard = ({
       viewport={{ once: true }}
     >
       <div className="relative z-10">
+        {/* Copy button for copyable items - positioned in top right */}
+        {copyable && (
+          <button
+            onClick={handleCopy}
+            className="absolute top-1 right-1 p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300"
+          >
+            {copied === title ? (
+              <Check size={16} />
+            ) : (
+              <Copy size={16} />
+            )}
+          </button>
+        )}
+        
         <div className="flex flex-col items-center text-center space-y-4">
           {/* Icon */}
           <div className={`p-4 rounded-full bg-gradient-to-br ${bgColor} border border-white/10`}>
@@ -106,26 +120,6 @@ const ContactCard = ({
               </p>
             )}
           </div>
-          
-          {/* Copy button for copyable items */}
-          {copyable && (
-            <button
-              onClick={handleCopy}
-              className="flex items-center space-x-1 px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 text-xs"
-            >
-              {copied === title ? (
-                <>
-                  <Check size={14} />
-                  <span>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={14} />
-                  <span>Copy</span>
-                </>
-              )}
-            </button>
-          )}
         </div>
       </div>
     </motion.div>
@@ -312,7 +306,7 @@ export function Contact() {
             Let&apos;s connect and explore opportunities together
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <SocialCard
               icon={Linkedin}
               title="LinkedIn"
