@@ -17,6 +17,7 @@ import { SparklesCore } from "@/components/ui/sparkles";
 import { Meteors } from "@/components/ui/meteors";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { useToast } from "@/components/ui/toast";
+import { FollowerPointerCard } from "@/components/ui/following-pointer";
 
 // Copy to clipboard hook
 const useCopyToClipboard = () => {
@@ -280,27 +281,31 @@ export function Contact() {
 
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-          <ContactCard
-            icon={Mail}
-            title="Email"
-            info={personalInfo.email}
-            href={`mailto:${personalInfo.email}`}
-            copyable={true}
-            delay={0.1}
-            iconColor="text-red-400"
-            bgColor="from-red-500/20 to-red-600/20"
-          />
+          <FollowerPointerCard title="Email Me!">
+            <ContactCard
+              icon={Mail}
+              title="Email"
+              info={personalInfo.email}
+              href={`mailto:${personalInfo.email}`}
+              copyable={true}
+              delay={0.1}
+              iconColor="text-red-400"
+              bgColor="from-red-500/20 to-red-600/20"
+            />
+          </FollowerPointerCard>
           
-          <ContactCard
-            icon={Phone}
-            title="Phone"
-            info={personalInfo.phone}
-            href={`tel:${personalInfo.phone}`}
-            copyable={true}
-            delay={0.2}
-            iconColor="text-green-400"
-            bgColor="from-green-500/20 to-green-600/20"
-          />
+          <FollowerPointerCard title="Phone Me!">
+            <ContactCard
+              icon={Phone}
+              title="Phone"
+              info={personalInfo.phone}
+              href={`tel:${personalInfo.phone}`}
+              copyable={true}
+              delay={0.2}
+              iconColor="text-green-400"
+              bgColor="from-green-500/20 to-green-600/20"
+            />
+          </FollowerPointerCard>
           
           <ContactCard
             icon={MapPin}

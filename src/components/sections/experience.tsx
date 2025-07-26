@@ -245,26 +245,8 @@ function ExperienceCard({ exp, index }: ExperienceCardProps) {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: achIndex * 0.05 }}
                           style={{ padding: '12px', width: '100%', maxWidth: '600px' }}
-                          className="flex items-start gap-3 bg-gray-800/30 rounded-lg border border-gray-700/30"
+                          className="bg-gray-800/30 rounded-lg border border-gray-700/30"
                         >
-                          <motion.div
-                            style={{
-                              width: '8px',
-                              height: '8px',
-                              borderRadius: '50%',
-                              backgroundColor: '#3b82f6',
-                              flexShrink: 0
-                            }}
-                            animate={{
-                              scale: [1, 1.2, 1],
-                              opacity: [0.7, 1, 0.7]
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                          />
                           <p className="text-gray-300 text-sm leading-relaxed text-center w-full">
                             {achievement}
                           </p>
