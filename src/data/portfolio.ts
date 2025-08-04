@@ -155,36 +155,38 @@ export const experience: Experience[] = [
 export const projects: Project[] = [
   {
     id: "1",
-    title: 'Automated Content Generation & Analysis Pipeline',
-    description: 'Developed a comprehensive pipeline that leverages a OpenAI APIs to automatically generate high-quality articles from a given set of topics. The system then enriches the content by performing several layers of machine learning-powered analysis, including summarization, keyword extraction, sentiment analysis, and clickbait classification.',
-    technologies: ['OpenAI API', 'Scikit-learn', 'Flair', 'Spacy', 'NLTK', 'Pandas', 'NumPy', 'Yake'],
-    image: '/api/placeholder/400/250',
-    expandedImage: '/api/placeholder/400/250',
-    impact: 'Scaled article production by over 100x',
-    metrics: ['10,000+ Articles/Day', '94% Classification Accuracy', 'Auto Review System'],
+    title: 'Interactive Tutoring Whiteboard',
+    description: 'An interactive online tutoring platform that combines a collaborative whiteboard with real-time chat functionality. Designed for seamless, real-time collaboration between tutors and students, it provides a rich set of tools for drawing, diagramming, and communication.',
+    technologies: ['React', 'TypeScript', 'Zustand', 'Excalidraw', 'Tailwind CSS', 'Lucide React', 'Vite', 'npm'],
+    image: '/project-images/tutoring-whiteboard.jpg',
+    expandedImage: '/project-images/tutoring-whiteboard-expanded.jpg',
+    impact: 'Streamlined the remote tutoring experience with an all-in-one collaborative tool.',
+    metrics: ['Real-time Whiteboard & Chat', 'Role-Based Access (Tutor/Student)', 'Multiple UI Themes', 'Responsive Design'],
     demo: '#',
-    github: 'https://github.com',
+    github: 'https://github.com/V1vek98/tutoring-whiteboard',
     details: [
-      'Used the OpenAI API to generate article titles and body content based on selected topics',
-      'Implemented a custom logistic regression model with Scikit-learn to classify the generated titles for click-bait potential',
-      'Integrated the Flair and Spacy libraries to perform sentiment analysis and generate concise article summaries',
-      'Automated the extraction of keywords, locations, and NSFW content before saving the final output'
+      'Built with React 18.3 and TypeScript for a modern, type-safe frontend.',
+      'Uses Zustand for efficient and lightweight state management.',
+      'Integrates the Excalidraw library for a feature-rich, collaborative whiteboard experience.',
+      'Styled with Tailwind CSS for a clean, responsive, and customizable user interface.',
+      'Includes multiple themes (Default, Dark, Ocean, Forest) to personalize the user experience.',
+      'Features a built-in, real-time chat for seamless communication during tutoring sessions.'
     ],
-    timeline: '3 months',
+    timeline: '2 weeks',
     challenges: [
-      'Ensuring generated content was coherent, relevant, and engaging for readers',
-      'Building an accurate classification model to distinguish between standard and "click-bait" headlines',
-      'Integrating multiple disparate NLP analysis tools into a single, seamless workflow'
+      'Ensuring low-latency, real-time synchronization of whiteboard drawings and chat messages between users.',
+      'Integrating and customizing the Excalidraw component within the React application.',
+      'Implementing a role-based system to manage tutor and student permissions effectively.'
     ],
     solutions: [
-      'Utilized OpenAI\'s text-davinci-002 model with carefully engineered prompts to guide high-quality text generation',
-      'Trained a logistic regression classifier on a labeled dataset, using TF-IDF and part-of-speech tagging for feature engineering',
-      'Developed a modular pipeline in Python, where each analysis step (e.g., summarization, sentiment analysis) functioned as an independent stage'
+      'Leveraged modern libraries and a component-based architecture to build a performant, real-time application.',
+      'Utilized Zustand for simplified global state management, making it easier to handle shared application state.',
+      'Designed a clean, intuitive UI with Tailwind CSS, ensuring a great user experience on both desktop and mobile devices.'
     ],
     outcomes: [
-      'Deployed a system capable of generating complete articles with titles, sub-headlines, and summaries',
-      'Enriched each article with valuable metadata, including sentiment scores, keywords, and read-time estimates',
-      'Delivered a final structured dataset containing all generated content and its corresponding analytics in an Excel file'
+      'Developed a fully functional, interactive online whiteboard with integrated real-time chat.',
+      'Successfully implemented features for theme customization, responsive design, and role-based access.',
+      'Created a platform that enhances the remote tutoring experience by providing a seamless, all-in-one solution for collaboration.'
     ]
   },
   {
@@ -223,36 +225,37 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: 'Hotel Intelligence Hub - Data Analytics Platform',
-    description: 'Developed a comprehensive web-based analytics platform for hotel industry data analysis, featuring automated data loading, intelligent classification systems, and interactive visualizations. The application processes complex hotel datasets and provides real-time insights into property performance, market positioning, and operational metrics.',
-    technologies: ['React', 'Material-UI', 'JavaScript ES6+', 'CSV Processing', 'Google Maps API', 'Responsive Design'],
-    image: '/api/placeholder/400/250',
-    expandedImage: '/api/placeholder/400/250',
-    impact: 'Streamlined hotel data analysis workflow by 85%',
-    metrics: ['85% Workflow Improvement', '10MB+ File Processing', '100% Mobile Responsive'],
-    demo: '#',
-    github: 'https://github.com',
+    title: "Automated Chrome Extension Review Analyzer",
+    description: "Developed a bot that automates the process of analyzing user feedback for any Google Chrome extension. The system uses Selenium to navigate the Chrome Web Store, scrape all available reviews for a specified extension, and then leverages the Flair NLP library to perform sentiment analysis, classifying each review as positive, negative, or neutral.",
+    technologies: ["Python", "Selenium", "Flair", "Pandas"],
+    image: "/project-images/chrome-bot-review.jpg",
+    expandedImage: "/project-images/chrome-bot-review.jpg",
+    impact: "Automated the tedious process of manually reading and categorizing user feedback, providing quick, actionable insights into public opinion of a browser extension.",
+    metrics: ["Handles All Reviews via Pagination", "3-Category Sentiment Classification", "CSV Data Export"],
+    demo: "#",
+    github: "https://github.com/V1vek98/chrome-bot-review",
     details: [
-      'Built a modern React-based web application with Material-UI components for professional hotel data analysis',
-      'Implemented automatic CSV file detection and loading system that processes hotel datasets on startup',
-      'Developed intelligent hotel classification algorithm using room count and PRO/CORE status with visual feedback',
-      'Created responsive interface with advanced filtering, search capabilities, and Google Maps integration for location analysis'
+      "Utilized Selenium to programmatically launch a Chrome browser and navigate to a target extension's page on the Web Store.",
+      "Implemented a web scraping logic to systematically extract review text from the page's HTML structure.",
+      "Engineered the bot to handle pagination, automatically clicking the 'Next' button to load and scrape all available reviews.",
+      "Integrated the Flair NLP library's pre-trained sentiment model to process the scraped text and classify each review.",
+      "Stored the classified reviews along with their confidence scores into a structured Pandas DataFrame and exported the results to a CSV file."
     ],
-    timeline: '2 months',
+    timeline: "1 week",
     challenges: [
-      'Processing large CSV files (10MB+) efficiently in the browser without performance degradation',
-      'Creating an intuitive user interface that works seamlessly across desktop and mobile devices',
-      'Implementing robust error handling for various CSV formats and data inconsistencies'
+      "Handling dynamic web elements and potential changes in the Chrome Web Store's page layout.",
+      "Managing the browser's state, specifically scrolling and clicking 'Next' to reveal all reviews without errors.",
+      "Ensuring the scraper was robust enough to handle extensions with thousands of reviews across many pages."
     ],
     solutions: [
-      'Utilized Papa Parse library for efficient CSV processing with streaming capabilities and memory optimization',
-      'Implemented Material-UI\'s responsive grid system with custom breakpoints and touch-friendly interactions',
-      'Built comprehensive validation system with graceful error recovery and user-friendly error messages'
+      "Used explicit waits in Selenium to ensure page elements were fully loaded before attempting interaction, making the scraping process more reliable.",
+      "Created a loop that continuously tries to find and click the 'Next' button, breaking only when the button is no longer present, thus capturing all pages.",
+      "Leveraged the Pandas library for efficient in-memory data manipulation and Flair's optimized models for fast sentiment classification."
     ],
     outcomes: [
-      'Delivered a production-ready application capable of processing hotel datasets with 1000+ properties instantly',
-      'Implemented advanced data visualization features including interactive maps, dynamic filtering, and real-time classification updates',
-      'Reduced manual data analysis time from hours to minutes with automated insights and classification features'
+      "Developed a fully automated bot capable of scraping and analyzing reviews for any given Chrome extension URL.",
+      "Produced a clean, structured CSV file containing each review accompanied by its sentiment classification (Positive, Negative, or Neutral) and a confidence score.",
+      "Created a reusable tool for developers or marketers to quickly gauge user sentiment and identify common feedback themes for any extension."
     ]
   },
   {
@@ -260,8 +263,8 @@ export const projects: Project[] = [
     title: 'Advanced AI Image Generation Studio',
     description: 'Built a comprehensive ComfyUI-powered image generation platform that orchestrates multiple state-of-the-art AI models including Flux, Stable Diffusion XL, and ControlNet. The system features advanced workflow automation, batch processing capabilities, and intelligent model switching to optimize output quality and generation speed.',
     technologies: ['ComfyUI', 'Flux.1', 'Stable Diffusion XL', 'ControlNet', 'Python', 'PyTorch', 'CUDA', 'Custom Nodes'],
-    image: '/api/placeholder/400/250',
-    expandedImage: '/api/placeholder/400/250',
+    image: '/project-images/comfyui.jpg',
+    expandedImage: '/project-images/comfyui.jpg',
     impact: 'Created 25+ custom workflows for different use cases and artistic styles',
     metrics: ['1000+ Images Generated', '10+ AI Models Integrated', '25+ Custom Workflows'],
     demo: '#',
@@ -294,8 +297,8 @@ export const projects: Project[] = [
     title: 'Local DeepSeek LLM Deployment & Optimization',
     description: 'Set up and optimized DeepSeek LLM for local inference, exploring the capabilities of running large language models on consumer hardware. Built a simple API wrapper and experimented with various optimization techniques to maximize performance within GPU memory constraints.',
     technologies: ['DeepSeek-R1', 'Python', 'Ollama', 'FastAPI', 'CUDA', 'Transformers'],
-    image: '/api/placeholder/400/250',
-    expandedImage: '/api/placeholder/400/250',
+    image: '/project-images/local-deepseek.jpg',
+    expandedImage: '/project-images/local-deepseek-expanded.jpg',
     impact: 'Successfully ran 70B parameter model locally with good performance',
     metrics: ['70B Parameters', '20-30s Response Time', 'Local Privacy'],
     demo: '#',
