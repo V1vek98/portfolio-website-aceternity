@@ -191,40 +191,6 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    title: 'Automated Hotel Performance Reporting & BI Dashboard',
-    description: 'Engineered a fully autonomous data pipeline to replace manual daily reporting. The system automatically ingests hotel performance PDFs from email, uses advanced OCR and regex to intelligently extract transactional and statistical data, and transforms it into a clean, structured format. The processed data is then channeled into an interactive Power BI dashboard, providing real-time insights into key business metrics.',
-    technologies: ['Python', 'PyTesseract', 'PyMuPDF', 'Pandas', 'NumPy', 'Power Automate', 'Power BI', 'Regex'],
-    image: '/api/placeholder/400/250',
-    expandedImage: '/api/placeholder/400/250',
-    impact: 'Reduced daily reporting time by 100%',
-    metrics: ['20+ PDF Reports Daily', '<1 Min Processing Time', '99.8% Extraction Accuracy'],
-    demo: '#',
-    github: 'https://github.com',
-    details: [
-      'Automated the daily retrieval of hotel audit PDFs from email attachments using a scheduled flow',
-      'The script identifies and isolates pages containing "Final Transaction Closeout" and "Hotel Statistics," converting them into images for analysis',
-      'Applied Optical Character Recognition (OCR) and advanced regex to parse the images, extracting financial data and operational metrics into a structured format',
-      'The system cleans, transforms, and appends the new data to a central CSV file, which serves as a direct data source for the live Power BI dashboard'
-    ],
-    timeline: '5 weeks',
-    challenges: [
-      'Extracting data accurately from PDF reports with inconsistent layouts and multi-page tables',
-      'Parsing complex financial figures, including negative values represented in parentheses',
-      'Building a resilient, fully automated pipeline that could handle daily execution and potential errors without supervision'
-    ],
-    solutions: [
-      'Developed a dynamic PDF processing module that first converts relevant pages to high-DPI images and then uses OCR to extract text for parsing',
-      'Engineered robust regex patterns and data cleaning functions to precisely capture and standardize all required metrics and financial data',
-      'Utilized Microsoft Power Automate to monitor an inbox for new report emails and trigger the Python script, with integrated logging for seamless monitoring and troubleshooting'
-    ],
-    outcomes: [
-      'Deployed a zero-touch automation solution that runs daily, extracting data from all hotel audit PDFs',
-      'Produced a clean, unpivoted dataset of hotel transactions and statistics, perfectly structured for analytics',
-      'Delivered a comprehensive Power BI dashboard visualizing key performance indicators, revenue streams, and daily activity across all properties'
-    ]
-  },
-  {
-    id: "3",
     title: "Automated Chrome Extension Review Analyzer",
     description: "Developed a bot that automates the process of analyzing user feedback for any Google Chrome extension. The system uses Selenium to navigate the Chrome Web Store, scrape all available reviews for a specified extension, and then leverages the Flair NLP library to perform sentiment analysis, classifying each review as positive, negative, or neutral.",
     technologies: ["Python", "Selenium", "Flair", "Pandas"],
@@ -259,7 +225,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "4",
+    id: "3",
     title: 'Advanced AI Image Generation Studio',
     description: 'Built a comprehensive ComfyUI-powered image generation platform that orchestrates multiple state-of-the-art AI models including Flux, Stable Diffusion XL, and ControlNet. The system features advanced workflow automation, batch processing capabilities, and intelligent model switching to optimize output quality and generation speed.',
     technologies: ['ComfyUI', 'Flux.1', 'Stable Diffusion XL', 'ControlNet', 'Python', 'PyTorch', 'CUDA', 'Custom Nodes'],
@@ -293,7 +259,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "5",
+    id: "4",
     title: 'Local DeepSeek LLM Deployment & Optimization',
     description: 'Set up and optimized DeepSeek LLM for local inference, exploring the capabilities of running large language models on consumer hardware. Built a simple API wrapper and experimented with various optimization techniques to maximize performance within GPU memory constraints.',
     technologies: ['DeepSeek-R1', 'Python', 'Ollama', 'FastAPI', 'CUDA', 'Transformers'],
@@ -327,7 +293,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "6",
+    id: "5",
     title: 'Modern Portfolio Website - Next.js 15 & Framer Motion',
     description: 'Built a fully responsive, modern portfolio website using Next.js 15 with advanced animations and interactive components. Features a dark theme design with gradient backgrounds, scroll-triggered animations, floating dock navigation, and a glassmorphism contact form. The site showcases data analyst work experience and projects with smooth user interactions.',
     technologies: ['Next.js 15', 'TypeScript', 'Tailwind CSS 4', 'Framer Motion 12', 'React Hook Form', 'Zod', 'Lucide React', 'Tabler Icons'],
@@ -361,6 +327,40 @@ export const projects: Project[] = [
       'Achieved excellent performance scores with optimized images, fonts, and animations that enhance rather than hinder user experience',
       'Built a scalable architecture with centralized data management, reusable components, and maintainable code structure for future updates',
       'Created an engaging user experience with interactive elements, smooth animations, and intuitive navigation that encourages exploration'
+    ]
+  },
+  {
+    id: "6",
+    title: 'Automated Hotel Performance Reporting & BI Dashboard',
+    description: 'Engineered a fully autonomous data pipeline to replace manual daily reporting. The system automatically ingests hotel performance PDFs from email, uses advanced OCR and regex to intelligently extract transactional and statistical data, and transforms it into a clean, structured format. The processed data is then channeled into an interactive Power BI dashboard, providing real-time insights into key business metrics.',
+    technologies: ['Python', 'PyTesseract', 'PyMuPDF', 'Pandas', 'NumPy', 'Power Automate', 'Power BI', 'Regex'],
+    image: '/api/placeholder/400/250',
+    expandedImage: '/api/placeholder/400/250',
+    impact: 'Reduced daily reporting time by 100%',
+    metrics: ['20+ PDF Reports Daily', '<1 Min Processing Time', '99.8% Extraction Accuracy'],
+    demo: '#',
+    github: 'https://github.com',
+    details: [
+      'Automated the daily retrieval of hotel audit PDFs from email attachments using a scheduled flow',
+      'The script identifies and isolates pages containing "Final Transaction Closeout" and "Hotel Statistics," converting them into images for analysis',
+      'Applied Optical Character Recognition (OCR) and advanced regex to parse the images, extracting financial data and operational metrics into a structured format',
+      'The system cleans, transforms, and appends the new data to a central CSV file, which serves as a direct data source for the live Power BI dashboard'
+    ],
+    timeline: '5 weeks',
+    challenges: [
+      'Extracting data accurately from PDF reports with inconsistent layouts and multi-page tables',
+      'Parsing complex financial figures, including negative values represented in parentheses',
+      'Building a resilient, fully automated pipeline that could handle daily execution and potential errors without supervision'
+    ],
+    solutions: [
+      'Developed a dynamic PDF processing module that first converts relevant pages to high-DPI images and then uses OCR to extract text for parsing',
+      'Engineered robust regex patterns and data cleaning functions to precisely capture and standardize all required metrics and financial data',
+      'Utilized Microsoft Power Automate to monitor an inbox for new report emails and trigger the Python script, with integrated logging for seamless monitoring and troubleshooting'
+    ],
+    outcomes: [
+      'Deployed a zero-touch automation solution that runs daily, extracting data from all hotel audit PDFs',
+      'Produced a clean, unpivoted dataset of hotel transactions and statistics, perfectly structured for analytics',
+      'Delivered a comprehensive Power BI dashboard visualizing key performance indicators, revenue streams, and daily activity across all properties'
     ]
   }
 ];
