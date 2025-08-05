@@ -148,36 +148,37 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="bg-gray-900/95 backdrop-blur-md border border-gray-700/50 rounded-2xl max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col items-center"
+              className="bg-gray-900/95 backdrop-blur-md border border-gray-700/50 rounded-2xl max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
-              <div className="flex flex-col items-center justify-center gap-4 p-8 border-b border-gray-700/50 w-full">
-                <h2 className="text-3xl font-bold text-white text-center">{project.title}</h2>
-                <div className="flex gap-3 justify-center">
-                  <LinkPreview url={project.github}>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
-                  </LinkPreview>
-                </div>
-                <button
-                  onClick={() => setIsExpanded(false)}
-                  className="p-3 hover:bg-gray-800 rounded-lg transition-colors mx-auto"
-                >
-                  <X size={24} className="text-gray-300" />
-                </button>
-              </div>
+              {/* Close button */}
+              <button
+                onClick={() => setIsExpanded(false)}
+                className="absolute top-4 right-4 p-3 hover:bg-gray-800 rounded-lg transition-colors z-10"
+              >
+                <X size={24} className="text-gray-300" />
+              </button>
 
               {/* Content */}
-              <div className="overflow-y-auto max-h-[calc(90vh-100px)] p-8 w-full">
+              <div className="p-8 w-full">
                 <div className="max-w-4xl mx-auto space-y-12 flex flex-col items-center w-full">
+                  {/* Header */}
+                  <div className="flex flex-col items-center justify-center gap-4 w-full">
+                    <h2 className="text-3xl font-bold text-white text-center">{project.title}</h2>
+                    <div className="flex gap-3 justify-center">
+                      <LinkPreview url={project.github}>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition-colors"
+                        >
+                          <Github size={16} />
+                          Code
+                        </a>
+                      </LinkPreview>
+                    </div>
+                  </div>
                   {/* Project Image */}
                   <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center">
                     <Image
@@ -320,14 +321,14 @@ export function ProjectsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-purple-900/5 to-gray-900/20" />
       
       <div className="max-w-7xl mx-auto container-spacing w-full">
-        <div className="flex-center-col text-center space-y-20">
+        <div className="flex flex-col items-center text-center space-y-32">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
               Featured{" "}
