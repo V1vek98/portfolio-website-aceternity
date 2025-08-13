@@ -77,6 +77,8 @@ const FloatingDockMobile = ({
                         }
                       } else if (item.href.startsWith('http')) {
                         window.open(item.href, '_blank');
+                      } else if (item.href.startsWith('/')) {
+                        window.open(item.href, '_blank');
                       }
                       setOpen(false);
                     }}
@@ -231,6 +233,8 @@ function IconContainer({
             element.scrollIntoView({ behavior: 'smooth' });
           }
         } else if (href.startsWith('http')) {
+          window.open(href, '_blank');
+        } else if (href.startsWith('/')) {
           window.open(href, '_blank');
         }
       }}
