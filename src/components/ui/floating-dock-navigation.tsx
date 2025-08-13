@@ -1,7 +1,7 @@
 "use client";
 
 import { FloatingDock } from "./floating-dock";
-import { Mail, Linkedin, Github, Briefcase, FolderOpen, Phone, Home } from "lucide-react";
+import { Mail, Linkedin, Github, Briefcase, FolderOpen, Phone, Home, FileText } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
 export function FloatingDockNavigation() {
@@ -31,6 +31,12 @@ export function FloatingDockNavigation() {
       titleColor: "text-green-600",
     },
     {
+      title: "separator",
+      icon: <></>,
+      href: "",
+      type: "separator" as const,
+    },
+    {
       title: "LinkedIn",
       icon: <Linkedin className="h-full w-full text-blue-600" />,
       href: personalInfo.linkedin,
@@ -47,6 +53,18 @@ export function FloatingDockNavigation() {
       icon: <Mail className="h-full w-full text-red-500" />,
       href: `mailto:${personalInfo.email}`,
       titleColor: "text-red-500",
+    },
+    {
+      title: "separator",
+      icon: <></>,
+      href: "",
+      type: "separator" as const,
+    },
+    {
+      title: "Resume",
+      icon: <FileText className="h-full w-full text-purple-500" />,
+      href: "/resume.pdf",
+      titleColor: "text-purple-500",
     },
   ];
 

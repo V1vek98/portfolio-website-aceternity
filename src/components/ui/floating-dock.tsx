@@ -9,7 +9,7 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string; type?: "link" | "separator" }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
@@ -25,7 +25,7 @@ const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string; type?: "link" | "separator" }[];
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
@@ -59,27 +59,33 @@ const FloatingDockMobile = ({
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
-                <a
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (item.href.startsWith('mailto:')) {
-                      window.location.href = item.href;
-                    } else if (item.href.startsWith('#')) {
-                      const element = document.getElementById(item.href.substring(1));
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
+                {item.type === "separator" ? (
+                  <div className="h-10 flex items-center justify-center">
+                    <div className="h-6 w-px bg-gray-500/50"></div>
+                  </div>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.href.startsWith('mailto:')) {
+                        window.location.href = item.href;
+                      } else if (item.href.startsWith('#')) {
+                        const element = document.getElementById(item.href.substring(1));
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      } else if (item.href.startsWith('http')) {
+                        window.open(item.href, '_blank');
                       }
-                    } else if (item.href.startsWith('http')) {
-                      window.open(item.href, '_blank');
-                    }
-                    setOpen(false);
-                  }}
-                  className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:bg-gray-700/80 transition-colors"
-                  aria-label={`Navigate to ${item.title}`}
-                >
-                  <div className="flex items-center justify-center">{item.icon}</div>
-                </a>
+                      setOpen(false);
+                    }}
+                    className="h-10 w-10 rounded-full bg-gray-800/80 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:bg-gray-700/80 transition-colors"
+                    aria-label={`Navigate to ${item.title}`}
+                  >
+                    <div className="flex items-center justify-center">{item.icon}</div>
+                  </a>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -121,7 +127,7 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; titleColor?: string; type?: "link" | "separator" }[];
   className?: string;
 }) => {
   const mouseX = useMotionValue(Infinity);
@@ -148,7 +154,13 @@ const FloatingDockDesktop = ({
             ease: "easeOut"
           }}
         >
-          <IconContainer mouseX={mouseX} {...item} />
+          {item.type === "separator" ? (
+            <div className="flex items-center justify-center px-2">
+              <div className="h-8 w-px bg-gray-500/50"></div>
+            </div>
+          ) : (
+            <IconContainer mouseX={mouseX} {...item} />
+          )}
         </motion.div>
       ))}
     </motion.div>

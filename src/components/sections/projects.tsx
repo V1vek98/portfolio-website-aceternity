@@ -161,7 +161,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
               {/* Content */}
               <div className="p-8 w-full">
-                <div className="max-w-4xl mx-auto space-y-12 flex flex-col items-center w-full">
+                <div className="max-w-4xl mx-auto flex flex-col items-center w-full space-y-12">
                   {/* Header */}
                   <div className="flex flex-col items-center justify-center gap-4 w-full">
                     <h2 className="text-3xl font-bold text-white text-center">{project.title}</h2>
