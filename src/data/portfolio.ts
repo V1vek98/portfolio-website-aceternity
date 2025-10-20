@@ -48,7 +48,7 @@ export interface PersonalInfo {
 export const personalInfo: PersonalInfo = {
   name: "Vivek Patel",
   title: "Senior Data Analyst",
-  location: "Brambleton, VA",
+  location: "Augusta, GA",
   email: "vspatel360@gmail.com",
   phone: "+1 (480) 233-8735",
   linkedin: "https://www.linkedin.com/in/vspatel360/",
